@@ -1,0 +1,98 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:1.7
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/etc/traefik/traefik.toml
+      - ./traefik/acme.json:/acme.json
+      - ./traefik/voxsnap.passwd:/voxsnap.passwd
+    container_name: traefik
+
+  django:
+    restart: unless-stopped
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:localhost"
+      - "traefik.port=8000"
+      - "traefik.frontend.headers.customRequestHeaders=HTTP_X_FORWARDED_PROTO:https"
+    expose:
+      - 8000
+    depends_on:
+      - crate
+      - postgres
+      - redis
+
+  nodejs:
+    restart: unless-stopped
+    build: ./frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:localhost;PathPrefix:/bundles/,/sockjs-node/"
+      - "traefik.port=4000"
+    expose:
+      - 4000
+
+  postgres:
+    restart: unless-stopped
+    image: postgres:10.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  redis:
+    restart: unless-stopped
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  crate:
+    restart: unless-stopped
+    image: robd003/cratedb:4.1.0
+    ports:
+      - "4200:4200"
+      - "5442:5432"
+    volumes:
+      - crate_data_new:/data
+    environment:
+      CRATE_HEAP_SIZE: 756m
+    command: crate -Cnetwork.host=_site_ -Cpath.repo=/data/backup
+
+  crate_exp:
+    restart: unless-stopped
+    image: robd003/cratedb:4.0.0-phonetics
+    ports:
+      - "4200:4200"
+      - "5442:5432"
+    volumes:
+      - crate_exp:/data
+    environment:
+      CRATE_HEAP_SIZE: 756m
+    command: crate -Cnetwork.host=_site_ -Cpath.repo=/data/backup
+
+  redirector:
+    restart: unless-stopped
+    image: osixia/www-redirect
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:www.voxsnap.com"
+      - "traefik.port=80"
+    expose:
+      - 80
+
+volumes:
+  pgdata:
+  crate_data_new:
+  crate_data:
+  crate_exp:

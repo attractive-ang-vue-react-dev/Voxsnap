@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Index page{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Index Page</h1>
+        <a href="{% url 'dashboard:order_narrations' %}">Order</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard:narrations_list' %}">Narrations</a>
+            <a href="{% url 'account_logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Login</a>
+        {% endif %}
+    </div>
+{% endblock %}

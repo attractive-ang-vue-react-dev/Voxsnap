@@ -1,0 +1,217 @@
+@import "../../../../utils/mixins";
+
+.order-narrations-form {
+  @include white-content;
+
+  padding: 30px 0;
+
+  .package-row {
+    justify-content: space-between;
+
+    @include breakpoint($medium) {
+      h3, .package, .narrators-count {
+        margin-bottom: 20px;
+      }
+    }
+
+    .package {
+      display: flex;
+
+      label {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+    }
+
+    .narrators-count {
+      input {
+        width: 60px;
+        margin-right: 10px;
+      }
+    }
+
+    .pricing {
+      .caption {
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      .price {
+        font-size: 18px;
+        margin-bottom: 9px;
+
+        span {
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .global-notes {
+    h3 {
+      display: block;
+      margin: 0 0 15px;
+    }
+
+    textarea {
+      min-height: 160px;
+      height: 160px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  .additional-services {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    flex: 1 1 auto;
+
+    label {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding: 15px;
+      width: 300px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 0 20px $light-green;
+      }
+
+      &.checked {
+        border: 3px solid $light-green;
+        padding: 13px;
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .description {
+        font-size: 16px;
+        line-height: 1.19;
+        margin: 10px 0;
+      }
+
+      .price {
+        font-size: 22px;
+        color: $light-green;
+      }
+
+      input {
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+      }
+    }
+
+    @include breakpoint($medium) {
+      display: block;
+      padding: 0;
+
+      label {
+        margin: 0 auto 20px;
+      }
+    }
+  }
+
+  .additional-services-row {
+    @include breakpoint($medium) {
+      h3 {
+        text-align: center;
+      }
+    }
+  }
+
+  .complete-order-block {
+    padding: 60px 30px 80px;
+    text-align: center;
+
+    .promo-button-wrapper {
+      margin: 0 0 40px;
+
+      button {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .submit-button-container {
+      margin: 50px 0 30px;
+
+      .paym-agreement {
+        margin-top: 35px;
+      }
+    }
+
+    label {
+      input {
+        margin-right: 5px;
+      }
+
+      b {
+        font-weight: bold;
+      }
+    }
+
+    .promo-button {
+      color: $font-color;
+    }
+  }
+
+  .promo-wrapper {
+    .input-wrapper {
+      padding: 0 20px;
+
+      input {
+        color: $light-green;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .promo-result {
+      font-size: 22px;
+      font-weight: 500;
+      margin-left: 20px;
+    }
+
+    &.success {
+      .promo-result {
+        color: $light-green
+      }
+    }
+
+    @include breakpoint($medium) {
+      text-align: center;
+
+      .input-wrapper {
+        padding: 0 0 20px;
+        width: 100%;
+      }
+
+      .promo-result {
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .stripe {
+    .card-element {
+      width: 400px;
+    }
+  }
+}

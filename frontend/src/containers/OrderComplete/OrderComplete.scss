@@ -1,0 +1,7 @@
+@import "../../utils/mixins";
+
+.order-complete {
+  @include white-content;
+
+  padding: 30px 0;
+}

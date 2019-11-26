@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Thank you for your order</title>
+  <link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
+</head>
+<body>
+  <header class="main-header">
+  <div class="main-header__wrapper">
+    <div class="main-header__inner">
+      <div class="main-header__logo">
+        <a href="/">
+          <img src="{% static "assets/img/logo@2x.png" %}" width="168" height="23" alt="VoxSnap">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <!-- <li><a href="/contact_us" class="main-nav__link">Contact</a></li> -->
+          <li><a href="/pricing/" class="main-nav__link">Pricing</a></li>
+          <li><a href="/audiohub/" class="main-nav__link">Audiohub</a></li>
+          <li><a href="/#blog" class="main-nav__link main-nav__link--bold">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section class="thank-you">
+      <div class="thank-you__wrapper">
+        <div class="thank-you__inner">
+          <div class="thank-you__thumb">
+            <!-- <img src="{% static "assets/img/goal.svg" %}" width="192" height="199" alt="" /> -->
+          </div>
+          <div class="thank-you__content">
+            <h2 class="thank-you__title">Thank you for your order!</h2>
+            <p class="thank-you__text">
+              <b>You will receive a receipt in your email shortly.
+            </p>
+            <p class="thank-you__text">
+              If you have questions please feel free to reach out at <a href="mailto:team@voxsnap.com">team@voxsnap.com</a>. Looking forward to listening to your posts!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+  <div class="main-footer__wrapper">
+    <div class="main-footer__social">
+      <a href="https://www.facebook.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+      </a>
+      <a href="https://twitter.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/voxsnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+      </a>
+    </div>
+    <div class="main-footer__info">
+      <p class="made">
+        <span>Made in </span>
+        <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+      </p>
+      <p class="legal">
+        <a href="/terms/">Terms of Use</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </p>
+      <p class="copyright">
+        Copyright &copy; {% now 'Y' %} VoxSnap Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93567103-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-93567103-1');
+</script>
+<script src="{% static "assets/js/script.js" %}"></script>
+</body>
+</html>

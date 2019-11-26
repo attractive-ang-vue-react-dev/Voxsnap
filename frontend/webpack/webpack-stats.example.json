@@ -1,0 +1,13 @@
+{
+    "status": "done",
+    "publicPath": "http://127.0.0.1:4000/bundles/",
+    "chunks": {
+        "main": [
+            {
+                "name": "bundle-main.js",
+                "publicPath": "http://127.0.0.1:4000/bundles/bundle-main.js",
+                "path": "/Users/robd/code/voxsnap-v2/frontend/bundles/bundle-main.js"
+            }
+        ]
+    }
+}

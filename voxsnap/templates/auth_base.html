@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n static compress %}
+
+{% block body_header %}
+    {% block styles %}
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'users/scss/auth-base.scss' %}"/>
+        {% endcompress %}
+    {% endblock %}
+{% endblock %}
+
+{% block body_class %} login {% endblock %}
+
+{% block content %}
+    <div class="dashboard-base">
+        <div class="main-menu">
+            <a class="logo" href="/">
+                <img src="{% static 'img/logo.svg' %}" alt="">
+            </a>
+        </div>
+        <div class="form-wrapper">
+            <div class="container">
+                <div class="auth-base">
+                    <img class="header-icon" src="{% static 'users/img/password-setup.svg' %}" alt="">
+                    <h1 class="form-title">{% block form_title %}{% endblock %}</h1>
+                    {% block login_form_content %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="copyright text-right">
+                <small>
+                    Copyright © 2018 VoxSnap Inc. All rights reserved.
+                </small>
+            </div>
+        </div>
+    </div>
+{% endblock %}

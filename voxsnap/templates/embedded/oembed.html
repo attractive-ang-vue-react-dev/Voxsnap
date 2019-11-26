@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ narration.title }}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+            window.parent.postMessage(JSON.stringify({src: window.location.toString(), context: 'iframe.resize', height: 132}), '*');
+            var loaded = {
+                player: false,
+                embedly: false
+            }
+            function scriptLoaded(name) {
+                loaded[name] = true;
+                //console.log(name, " loaded...");
+                for (var i in loaded) {
+                    if (loaded[i] != true)
+                        return;
+                }
+                //console.log("Everything loaded.");
+                // This bellow executes after all dependencies are loaded
+                if (typeof VOXSNAP_GLOBAL_INSTANCE !== 'undefined')
+                    startEmbedly();
+                else
+                    window.addEventListener("voxsnap-ready", startEmbedly(), { once: true });
+            }
+            function startEmbedly() {
+                //console.log("Starting embedly.");
+                VOXSNAP_GLOBAL_INSTANCE.initEmbedly(new playerjs.Receiver());
+            }
+    </script>
+    <script type="text/javascript" src="https://data.voxsnap.com/player/v1/{{narration.customer.short_name}}/voxsnap.js" data-username="{{narration.customer.short_name}}" data-narration="{{narration.id}}" async onload="scriptLoaded('player')"></script>
+    <script type="text/javascript" src="https://cdn.embed.ly/player-0.0.12.min.js" async onload="scriptLoaded('embedly')"></script>
+	<style>
+		body { margin: 0px; }
+		#voxsnap-player div { margin: 0px; }
+	</style>
+	</head>
+	<body>
+				<div id="voxsnap-player"></div>
+	</body>
+</html>
+

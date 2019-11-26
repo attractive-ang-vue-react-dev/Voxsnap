@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Player Customization</title>
+    </head>
+
+    <body>
+        <div id="voxsnap-player"></div>
+        
+        <script src="https://data.voxsnap.com/player/v1/voxsnap/voxsnap.js" data-username="next360" data-narration="52"></script>
+        <h2>Select library:</h2>
+        <form id="changeform">
+            Username:
+            <input type="text" id="change_username" />
+            <br /> Narration:
+            <input type="number" id="change_narration" value="0" step="1" min="1" />
+            <br />
+            <button>OK</button>
+        </form>
+        <br />
+        <h2>Edit subset of library properties:</h2>
+        <form id="changeeditform">
+            <textarea style="display:none" class="tmptext"></textarea>
+            Color:
+            <input type="color" name="color" class="json_editor" />
+            <br /> Enterprise mode:
+            <input type="checkbox" name="enterprise" class="json_editor" />
+            <br />
+            <button>OK</button>
+        </form>
+        <br />
+        <h2>Enter raw JSON:</h2>
+        <form id="changerawform">
+            <textarea style="width: 700px; height: 315px;">
+
+            </textarea>
+            <button>OK</button>
+        </form>
+        <br />
+
+        <script type="text/javascript">
+            document.querySelector("#changeform").addEventListener("submit", (e) => {
+                e.preventDefault();
+                VOXSNAP_GLOBAL_INSTANCE.reloadJSON(
+                    document.querySelector("#change_narration").value,
+                    document.querySelector("#change_username").value,
+                );
+                setTimeout(function () {
+                    document.querySelector("#changerawform textarea").value = JSON.stringify(VOXSNAP_GLOBAL_INSTANCE.LIBRARY, null, 4);
+                }, 200);
+                return false;
+            });
+            document.querySelector("#changeeditform").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const library_json = JSON.parse(this.querySelector("textarea").value);
+                const editFields = this.querySelectorAll("input.json_editor");
+                for (let i = 0, l = editFields.length; i < l; ++i) {
+                    const item = editFields[i];
+                    writeValue(item.name, library_json, item.jsonValue);
+                }
+                VOXSNAP_GLOBAL_INSTANCE.reloadJSON(
+                    library_json,
+                    // this parameter stands for narration id, we'll take it from the first item in JSON
+                    library_json.narrations[0].narration_id
+                );
+                setTimeout(function () {
+                    document.querySelector("#changerawform textarea").value = JSON.stringify(VOXSNAP_GLOBAL_INSTANCE.LIBRARY, null, 4);
+                }, 200);
+                return false;
+            });
+            document.querySelector("#changerawform").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const library_json = JSON.parse(document.querySelector("#changerawform textarea").value);
+                VOXSNAP_GLOBAL_INSTANCE.reloadJSON(
+                    library_json,
+                    // this parameter stands for narration id, we'll take it from the first item in JSON
+                    library_json.narrations[0].narration_id
+                );
+                return false;
+            }); {
+                const form = document.querySelector("#changeeditform");
+                const editFields = form.querySelectorAll(".json_editor");
+                for (let i = 0, l = editFields.length; i < l; ++i) {
+                    const item = editFields[i];
+                    item.disabled = true;
+                }
+            }
+
+            (async () => {
+                while (!window.VOXSNAP_GLOBAL_INSTANCE) {
+                    await new Promise((resolve) => {
+                        setTimeout(resolve, 200);
+                    });
+                }
+
+                document.querySelector("#change_username").value = VOXSNAP_GLOBAL_INSTANCE.USERNAME;
+                document.querySelector("#change_narration").value = VOXSNAP_GLOBAL_INSTANCE.NARRATION;
+
+                const library = await VOXSNAP_GLOBAL_INSTANCE.LIBRARY_PROMISE;
+                if (typeof library.color != "string")
+                    library.color = "";
+                const jsonString = JSON.stringify(library, null, 4);
+                document.querySelector("#changerawform textarea").value = jsonString;
+
+                // the property editor
+                const form = document.querySelector("#changeeditform");
+                const editFields = form.querySelectorAll("input.json_editor");
+                for (let i = 0, l = editFields.length; i < l; ++i) {
+                    const item = editFields[i];
+                    item.disabled = false;
+                    if (item instanceof HTMLInputElement) {
+                        if (item.type == "checkbox") {
+                            item.checked = readValue(item.name, library, item.checked);
+                            Object.defineProperty(item, "jsonValue", {
+                                get: function () {
+                                    return this.checked;
+                                },
+                                enumerable: false,
+                                configurable: true
+                            });
+                        } else {
+                            item.value = readValue(item.name, library, item.value);
+                            Object.defineProperty(item, "jsonValue", {
+                                get: function () {
+                                    return this.value;
+                                },
+                                enumerable: false,
+                                configurable: true
+                            });
+                        }
+                    }
+                }
+                form.querySelector("textarea").value = jsonString;
+            })();
+            /**
+             * @template T
+             * @param {string} path
+             * @param {Object} object
+             * @param {T} defaultValue
+             */
+            function readValue(path, object, defaultValue = null) {
+                const fragments = path.split(".");
+                let tmpValue = object;
+
+                for (let i = 0, l = fragments.length; i < l; ++i) {
+                    if (tmpValue == null)
+                        return defaultValue;
+                    const name = fragments[i];
+                    tmpValue = tmpValue[name];
+                }
+                return typeof tmpValue != "undefined" ? tmpValue : defaultValue;
+            }
+            /**
+             * @template T
+             * @param {string} path
+             * @param {Object} object
+             * @param {T} value
+             */
+            function writeValue(path, object, value) {
+                const fragments = path.split(".");
+                let tmpValue = object;
+                if (tmpValue == null)
+                    return;
+                for (let i = 0, l = fragments.length; i < l; ++i) {
+                    const name = fragments[i];
+                    if (i + 1 == l) {
+                        tmpValue[name] = value;
+                    } else {
+                        if (typeof tmpValue[name] != "object") {
+                            tmpValue[name] = {};
+                        }
+                        tmpValue = tmpValue[name];
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

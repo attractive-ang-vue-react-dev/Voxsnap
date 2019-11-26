@@ -1,0 +1,4 @@
+{% load i18n %}
+
+{% for key, value in lead.items %}
+{{key}}: {{value}}{% endfor %}

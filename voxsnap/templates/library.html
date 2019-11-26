@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VoxSnap Audiohub - Listen to Audio Content From The Best Blogs in The World!</title>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
+    <meta name="description" content="Learn about what interests you by listening to audio content from the best blogs in the world. Business, Career, Entrepreneurship, Tech and much more.">
+    <meta property="og:description" content="Learn about what interests you by listening to audio content from the best blogs in the world. Business, Career, Entrepreneurship, Tech and much more.">
+    <meta property="og:image" content="{% static "img/share_headphones.jpg" %}">
+    <meta property="og:title" content="VoxSnap Audiohub - Listen to Audio Content From The Best Blogs in The World!">
+    <meta property="og:url" content="https://voxsnap.com/audiohub/">
+    <meta property="fb:app_id" content="620074461518868" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@playAudiohub" />
+    <meta name="twitter:title" content="VoxSnap Audiohub - Listen to Audio Content From The Best Blogs in The World!">
+    <meta name="twitter:description" content="Learn about what interests you by listening to audio content from the best blogs in the world. Business, Career, Entrepreneurship, Tech and much more.">
+    <meta name="twitter:image" content="{% static "img/share_headphones.jpg" %}">
+    <meta name="msapplication-TileColor" content="#ffffff ">
+    <meta name="msapplication-TileImage" content="{% static "ms-icon-144x144.png" %}">
+    <meta name="theme-color" content="#ffffff ">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static "android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff ">
+    <meta name="msapplication-TileImage" content="{% static "ms-icon-144x144.png" %}">
+    <meta name="theme-color" content="#ffffff ">
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '335969666975527');
+    fbq('track', 'PageView');
+    </script>
+</head>
+<body>
+    <header class="library-header">
+        <div class="library-header__wrapper">
+            <a href="/audiohub/" class="library-header__logo-link library-header__logo-link--audiohub" title="VoxSnap Audiohub">
+                <img src="{% static "assets/img/logo-gray@2x.png" %}" width="136" height="18" alt="" class="audiohub-vx-img">
+                <img src="{% static "assets/img/logo-audiohub.png" %}" width="151" height="18" alt="" class="audiohub-hub-img">
+            </a>
+        </div>
+    </header>
+
+    <section class="library-categories">
+        <div class="library-categories__wrapper js-categories-container">
+
+        </div>
+    </section>
+
+    <section class="library-selected">
+        <div class="library-selected__bg js-introduction-main" style="background-image: url(https://cdn.voxsnap.com/media/uploads/narration/blazemeter/blazemeter_What%20is%20the%20Relationship%20Between%20Users%20and%20Hits%20Per%20Second.jpg.295x160_q85_crop-smart.jpg);"></div>
+        <div class="library-selected__wrapper">
+            <div class="library-selected__inner js-introduction-items">
+                <div class="library-selected__info ">
+                    <div class="library-selected__title">
+                        No time to read?
+                        <br />
+                        <span>Listen instead</span>
+                    </div>
+                    <p class="library-selected__subtitle">
+                        Advance your career and stay updated by listening to the best audioblogs from companies in your industry!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="library-va">
+        <div class="library-va__wrapper">
+            <div class="library-va__inner">
+                <div class="library-va__title">Ask your Voice Assistant</div>
+                <div class="library-va__logo">
+                    <img src="{% static "assets/img/library/va-alexa.png" %}" width="37" height="37" alt="Alexa" />
+                </div>
+                <div class="library-va__content">
+                    <p class="library-va__text">
+                        <span>Hey Alexa,</span> open VoxSnap
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="library-list library-list--featured">
+        <div class="library-list__wrapper">
+            <h3 class="library-list__title">Featured</h3>
+            <div class="library-list__inner js-featured-list-container" id="voxsnap-featured-items">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe">
+        <div class="subscribe__wrapper">
+            <h3 class="subscribe__title">Receive new audio posts weekly</h3>
+            <form class="subscribe__form">
+                <input type="email" name="email" class="subscribe__input" placeholder="Enter your email ..." required/>
+                {% csrf_token %}
+                <button type="submit" class="subscribe__btn">Subscribe</button>
+            </form>
+            <span class="error"></span>
+        </div>
+    </section>
+
+    <section class="playlist-card">
+        <div class="playlist-card__wrapper js-library-playlist-container">
+
+        </div>
+    </section>
+
+    <section class="library-list">
+        <div class="library-list__wrapper">
+            <div class="library-list__inner js-library-list-container">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="lbr-player hidden-with-voxsnap" style="display: none;">
+        <div id="voxsnap-player"></div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="main-footer__wrapper">
+            <div class="main-footer__social">
+                <a href="https://www.facebook.com/playaudiohub/" target="_blank" class="main-footer__social-link">
+                    <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+                </a>
+                <a href="https://twitter.com/playAudiohub/" target="_blank" class="main-footer__social-link">
+                    <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com/playaudiohub/" target="_blank" class="main-footer__social-link">
+                    <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+                </a>
+            </div>
+            <div class="main-footer__info">
+                <p class="made">
+                    <span>Made in </span>
+                    <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+                </p>
+                <p class="legal">
+                    <a href="/terms/">Terms of Use</a>
+                    <a href="/privacy/">Privacy Policy</a>
+                </p>
+                <p class="copyright">
+                    Copyright &copy; {% now 'Y' %} VoxSnap Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha256-oE03O+I6Pzff4fiMqwEGHbdfcW7a3GRRxlL+U49L5sA=" crossorigin="anonymous"></script>
+    <script>
+        //check if cookie set
+        (function() {
+            'use strict';
+
+            if(Cookies.get('llist')) {
+                document.querySelector(".subscribe").style.display = 'none';
+            } else {
+                // find the desired selectors
+                var btn = document.querySelector('.subscribe__form .subscribe__btn');
+                var alrt = document.querySelector('.subscribe__wrapper .error');
+                var email = document.querySelector('.subscribe__form input');
+                var form = document.querySelector('.subscribe__form');
+                var subscribe_box = document.querySelector(".subscribe");
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                });
+
+                // register an event
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if(email.validity.valid) {
+                        var request = new XMLHttpRequest();
+
+                        // keep track of the request
+                        request.onreadystatechange = function() {
+                            // check if the response data send back to us 
+                            if(request.readyState === 4) {
+                                if(request.status === 200) {
+                                    // hide our modal
+                                    alrt.style = "color: green;";
+                                    alrt.innerHTML = "You're subscribed";
+                                    setTimeout(function() {
+                                        subscribe_box.style.opacity = 0;
+                                        subscribe_box.style.overflow = "hidden";
+                                        subscribe_box.style.maxHeight = 0;
+                                        setTimeout(function() { subscribe_box.style.display = "none"; }, 1750);
+                                    }, 2000);
+                                } else {
+                                    // otherwise display an error message
+                                    alrt.innerHTML = '' + request.responseText;
+                                    //console.error(request);
+                                }
+                            }
+                        }
+                        request.open('POST', '/api/v1/mailinglist/');
+                        request.send(new FormData(form));
+                    } else {
+                    alrt.innerHTML = 'Please enter a valid email address';
+                    email.focus();
+                    }
+                });
+            }
+
+        })();
+    </script>
+    {% if PRODUCTION %}
+    <script src="https://data.voxsnap.com/player/v1/voxsnap/voxsnap.js" data-libraryurl="https://data.voxsnap.com/library/v2/library.json" data-lib-playlist="20" data-lib-playlist-username="ycombinator" async></script>
+    {% else %}
+    <script src="http://localhost:1337/voxsnap_player_oop.js" type="module" data-libraryurl="https://data.voxsnap.test:8000/library/v2/library.json" data-lib-playlist="20" data-lib-playlist-username="ycombinator" async></script>
+    {% endif %}
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=335969666975527&ev=PageView&noscript=1" /></noscript>
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1135052,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93567103-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-93567103-1');
+    </script>
+</body>
+</html>

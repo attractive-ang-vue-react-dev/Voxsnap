@@ -1,0 +1,120 @@
+@import "../../../../utils/mixins";
+@import "../../../../utils/variables";
+
+.playlist-form-container {
+  padding: 50px 20px;
+
+  .playlist-form {
+    @include white-content;
+
+    .title {
+      padding: 45px 0;
+      border: none;
+      display: flex;
+
+      .react-tabs {
+        &__tab-list {
+          border: none;
+          margin-left: 40px;
+          align-items: center;
+        }
+
+        &__tab {
+          border: none;
+          margin: 0 20px;
+          padding: 0;
+          background-color: transparent;
+          position: static;
+          bottom: auto;
+          text-transform: none;
+          font-size: 20px;
+          font-weight: 500;
+          color: $font-color;
+
+          &--selected {
+            color: $warm-pink;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &__tab-panel {
+          &--selected {
+            border: none;
+            padding: 0;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
+    & > .react-tabs__tab-panel {
+      padding: 0;
+    }
+
+    .playlist-name-wrapper {
+      padding: 45px 80px;
+      background-color: #f6f6f6;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $border-color;
+
+      label {
+        font-size: 20px;
+        font-weight: 500;
+        color: #7b7c8c;
+        margin-right: 27px;
+      }
+
+      input {
+        background-color: #fff;
+        flex: 1 1 auto;
+      }
+    }
+
+    .button-container {
+      padding: 40px 60px;
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        line-height: 35px;
+
+        span {
+          font-size: 30px;
+          margin-right: 10px;
+        }
+      }
+    }
+    .submit-button-container {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 40px;
+    }
+  }
+
+  .form-tab {
+    padding: 0;
+
+    .row-title {
+      width: 20%;
+    }
+
+    .player-config {
+      width: 50%;
+
+      .columns {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+.react-tabs__tab-panel--selected {
+  border: 1px solid #d9d9dd;
+  border-top: none;
+}

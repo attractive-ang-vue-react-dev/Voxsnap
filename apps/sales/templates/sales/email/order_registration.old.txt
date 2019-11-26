@@ -1,0 +1,37 @@
+VoxSnap, Inc
+940 Stewart Dr.
+Sunnyvale, CA 94085
+
+Invoice to:
+{{ company_name }}
+{{ order.user.get_full_name }}
+
+Payment date:
+{% now "n/j/Y" %}
+
+Order Summary:
+{{ order.quantity }} Narration(s): ${{ order.unit_price|floatformat:2 }}
+{% if additional_amount %}Additional per word charge: ${{ additional_amount|floatformat:2 }}{% endif %}
+
+{% if narrations_context_data %}
+    Narrations ordered:
+    {% for narration_data in narrations_context_data %}
+        Url: {{ narration_data.url }}
+        Word count: {{ narration_data.word_count }}
+    {% endfor %}
+{% endif %}
+
+{% if additional_services_data %}
+    Additional services:
+    {% for additional_service_data in additional_services_data %}
+        {{ additional_service_data.title }} - ${{ additional_service_data.price }}
+    {% endfor %}
+{% endif %}
+
+{% if order.promo_code %}Discount: ${{ order.discount|floatformat:2 }}{% endif %}
+
+Total: ${{ order.price|floatformat:2 }}
+
+Thank you for your order!
+
+Have a question or need help? Send us an email at team@voxsnap.com

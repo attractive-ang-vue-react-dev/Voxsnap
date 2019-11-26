@@ -1,0 +1,35 @@
+@import "../../utils/variables";
+
+.notification {
+  padding: 13px 20px;
+  border-radius: 5px;
+
+  &.success {
+    background-color: $light-green;
+    color: #ffffff;
+
+    & > button {
+      color: #ffffff;
+      opacity: 1;
+    }
+  }
+
+  &.error {
+    background-color: $warm-pink;
+    color: #ffffff;
+
+    & > button {
+      color: #ffffff;
+      opacity: 1;
+    }
+  }
+
+  & > button {
+    align-self: center;
+  }
+
+  &-body {
+    display: flex;
+    align-items: center;
+  }
+}

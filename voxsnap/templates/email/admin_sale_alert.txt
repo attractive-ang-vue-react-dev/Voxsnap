@@ -1,0 +1,8 @@
+We got a new sale from {{company}} - {{phone}}
+
+Payment date:
+{{date}}
+
+Order Summary:
+Total: {{amount}}
+

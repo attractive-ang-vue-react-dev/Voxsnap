@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Audiohub - {{ customer.company_name }}</title>
+    <link rel="stylesheet" href="{% static "assets/css/style.min.css" %}">
+    <meta property="fb:app_id" content="620074461518868" />
+    <meta property="og:image" content="{% static "assets/img/logo_play_square.png" %}" />
+    <meta name="twitter:image" content="{% static "assets/img/logo_play_square.png" %}" />
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '335969666975527');
+    fbq('track', 'PageView');
+    </script>
+  </head>
+  <body>
+    <header class="library-header">
+      <div class="library-header__wrapper">
+        <a href="/audiohub/" class="library-header__logo-link library-header__logo-link--audiohub" title="VoxSnap Audiohub">
+          <img src="{% static "assets/img/logo-gray@2x.png" %}" width="136" height="18" alt="" class="audiohub-vx-img">
+          <img src="{% static "assets/img/logo-audiohub.png" %}" width="151" height="18" alt="" class="audiohub-hub-img">
+        </a>
+      </div>
+    </header>
+
+    <section class="library-hub">
+      <div class="library-hub__wrapper">
+        <div class="library-hub__title">
+          <!-- <img src="/assets/img/library/buffer.png" width="145" height="29px" alt="buffer" /> -->
+        </div>
+        <p class="library-hub__info">
+          {{ customer.audio_hub_description }}
+        </p>
+        <div class="library-hub__link">
+          <a href="{{ customer.website }}">{{ customer.website_display }}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ask-va ask-va--bg-white">
+  <div class="ask-va__wrapper">
+    <div class="ask-va__inner">
+      {% if customer.amazon_alexa %}
+      <section class="ask-va__item">
+        <div class="ask-va__title"><span>Ask your</span> Voice Assistant</div>
+        <div class="ask-va__content">
+          <div class="ask-va__logo">
+            <img src="{% static "assets/img/library/va-alexa-rounded.png" %}" width="46" height="46" alt="Alexa" />
+          </div>
+          <p class="ask-va__text">
+            <span>Alexa,</span> tell VoxSnap to play posts from {{ customer.company_name }}
+          </p>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if customer.podcasts %}
+      <section class="ask-va__item">
+        <div class="ask-va__title"><span>Find in your</span> Podcast App</div>
+        <div class="ask-va__content ask-va__podcast">
+          <div class="ask-va__logo">
+            <img src="{% static "assets/img/library/apple-podcasts.jpg" %}" width="46" height="45" alt="Siri" />
+          </div>
+          <p class="ask-va__podcast-text">Listen in <span>Podcasts</span></p>
+        </div>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+    <section class="library-list library-list--featured">
+      <div class="library-list__wrapper">
+        <div class="library-list__inner js-library-list-container">
+
+        </div>
+      </div>
+    </section>
+
+    <section class="lbr-player hidden-with-voxsnap" style="display: none;">
+      <div id="voxsnap-player"></div>
+    </section>
+
+    <footer class="main-footer">
+  <div class="main-footer__wrapper">
+    <div class="main-footer__social">
+      <a href="https://www.facebook.com/playaudiohub/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+      </a>
+      <a href="https://twitter.com/playAudiohub/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/playaudiohub/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+      </a>
+    </div>
+    <div class="main-footer__info">
+      <p class="made">
+        <span>Made in </span>
+        <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+      </p>
+      <p class="legal">
+        <a href="{% url 'terms' %}">Terms of Use</a>
+        <a href="{% url 'privacy' %}">Privacy Policy</a>
+      </p>
+      <p class="copyright">
+        Copyright &copy; {% now 'Y' %} VoxSnap Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+    {% if PRODUCTION %}
+    <script src="https://data.voxsnap.com/player/v1/voxsnap/voxsnap.js" data-audiohub="{{ customer.short_name }}" async></script>
+    {% else %}
+    <script src="http://localhost:1337/voxsnap_player_oop.js" type="module" data-audiohub="{{ customer.short_name }}" async></script>
+    {% endif %}
+    <!-- <script src="/assets/js/script.js"></script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93567103-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-93567103-1');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=335969666975527&ev=PageView&noscript=1" /></noscript>
+  </body>
+</html>

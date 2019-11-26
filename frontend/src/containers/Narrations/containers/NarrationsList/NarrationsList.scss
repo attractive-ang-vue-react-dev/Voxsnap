@@ -1,0 +1,70 @@
+@import "../../../../utils/variables";
+.narrations-list {
+  .container {
+  }
+  .narrations-list-table {
+    width: 100%;
+
+    tbody {
+      tr {
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fff;
+          box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid $border-color;
+      transition: all 0.3s ease-in-out;
+
+      td, th {
+        padding: 20px 30px;
+        text-align: left;
+      }
+
+      th {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      td {
+        font-size: 15px;
+        font-weight: 500;
+        width: 150px;
+
+        &.numbers {
+          font-weight: normal;
+        }
+
+        &.url {
+          width: 400px;
+
+          span {
+            max-width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            text-overflow: ellipsis;
+          }
+        }
+
+        &.buttons {
+          width: 20px;
+          padding: 20px 10px;
+          text-align: right;
+        }
+
+        &.state-ready {
+          color: #4ad9ba;
+        }
+
+        &.state-processing {
+          color: #05b5ea;
+        }
+      }
+    }
+  }
+}

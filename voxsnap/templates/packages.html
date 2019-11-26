@@ -1,0 +1,596 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pricing - VoxSnap</title>
+    <link rel="stylesheet" href="{% static "assets/css/style.min.css" %}">
+    <script async src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <header class="main-header">
+  <div class="main-header__wrapper">
+    <div class="main-header__inner">
+      <div class="main-header__logo">
+        <a href="/">
+          <img src="{% static "assets/img/logo@2x.png" %}" width="168" height="23" alt="VoxSnap">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <!-- <li><a href="/contact_us" class="main-nav__link">Contact</a></li> -->
+          <li><a href="/pricing/" class="main-nav__link">Pricing</a></li>
+          <li><a href="/audiohub" class="main-nav__link">Audiohub</a></li>
+          <li><a href="/#blog" class="main-nav__link main-nav__link--bold">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+    <section class="pricing-page">
+      <div class="pricing-page__wrapper">
+        <h3 class="pricing-page__title">Package Identifier</h3>
+        <div class="pricing-page__package-row">
+          <div class="pricing-page__package-col pricing-page__package-col--1">
+            <button id="pricing-page__package--1" class="pricing-page__package pricing-page__package--1" type="button">
+              <span class="cntrl"></span>
+              <span class="txt">Needs</span>
+            </button>
+          </div>
+          <div class="pricing-page__package-col pricing-page__package-col--2">
+            <button id="pricing-page__package--2" class="pricing-page__package pricing-page__package--2 is-active" type="button">
+              <span class="cntrl"></span>
+              <span class="txt">Package</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pricing-page__blocks">
+          <div class="pricing-page__block" id="pricing-page__packages" style="display: block;">
+            <div class="pricing-page__type-row">
+              <button id="pricing-page__type--1" class="pricing-page__type pricing-page__type--1 is-active" data-type="monthly" type="button">Monthly</button>
+              <button id="pricing-page__type--2" class="pricing-page__type pricing-page__type--2" data-type="annual" type="button">Annual</button>
+            </div>
+
+            <section class="packages packages--monthly" id="pricing-page__packages">
+  <div class="packages__inner">
+    <section class="packages__item {% if view.kwargs.package == 'starter' %}is-selected{% endif %}" data-package="starter">
+      <div class="packages__recomended">
+        <span>Recomended package</span>
+        <img src="{% static "assets/img/icons/arrow.png" %}" width="36" height="30" />
+      </div>
+      <div class="packages__heading">
+        <div class="packages__name">Starter</div>
+        <a href="/payment/?type=monthly&amp;package=starter" class="packages__link">Select</a>
+        <div class="packages__price">
+          <div class="packages__price-monthly">
+            <span>$645</span><small>/mo</small>
+          </div>
+          <div class="packages__price-annual">
+            <span>$600</span><small>/mo</small>
+            <div class="packages__price-annual-text">billed annualy</div>
+          </div>
+        </div>
+      </div>
+      <div class="packages__description">
+        <ul class="packages__description-list">
+          <li>Up to 4 narrations/mo (1,500 words, $0.056 per additional word)</li>
+          <li>Unlimited audio file hosting</li>
+          <li>250GB bandwidth/mo</li>
+          <li>Customizable audio player and playlist</li>
+          <li>Your own dedicated audiohub page and distribution to the VoxSnap library</li>
+          <li>Distribution as a podcast stream to all the popular podcasting apps </li>
+          <li>Analytics</li>
+        </ul>
+      </div>
+      <div class="packages__add">
+        <div class="packages__add-control">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <button type="button" class="packages__add-btn">+</button>
+        </div>
+        <div class="packages__add-form" style="display: none;">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <div class="packages__add-input">
+            <input type="number" min="0" name="add_narrations_starter"/>
+          </div>
+          <div class="packages__add-radioBtns">
+            <label class="packages__add-radioItem">
+              <span class="value">As a one time bulk</span>
+              <input type="radio" name="add_narrations_starter_bulk">
+              <span class="checkmark"></span>
+            </label>
+            <label class="packages__add-radioItem">
+              <span class="value">As a monthy order</span>
+              <input type="radio" name="add_narrations_starter_monthly">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages__item {% if view.kwargs.package == 'advanced' %}is-selected{% endif %}" data-package="advanced">
+      <div class="packages__recomended">
+        <span>Recomended package</span>
+        <img src="{% static "assets/img/icons/arrow.png" %}" width="36" height="30" />
+      </div>
+      <div class="packages__heading">
+        <div class="packages__name">Advanced</div>
+        <a href="/payment/?type=monthly&amp;package=advanced" class="packages__link">Select</a>
+        <div class="packages__price">
+          <div class="packages__price-monthly">
+            <span>$2,585</span><small>/mo</small>
+          </div>
+          <div class="packages__price-annual">
+            <span>$2,500</span><small>/mo</small>
+            <div class="packages__price-annual-text">billed annualy</div>
+          </div>
+        </div>
+      </div>
+      <div class="packages__description">
+        <ul class="packages__description-list">
+          <li>Up to 8 narrations/mo (1,500 words, $0.056 per additional word)</li>
+          <li>Unlimited audio file hosting</li>
+          <li>5TB bandwidth/mo</li>
+          <li>Customizable audio player and playlist</li>
+          <li>Your own dedicated audiohub page and distribution to the VoxSnap library</li>
+          <li>Distribution as a podcast stream to all the popular podcasting apps</li>
+          <li>Upload all your additional podcasts</li>
+          <li>Scheduled rollout</li>
+          <li>Alexa Briefings</li>
+          <li>Google Home News</li>
+          <li>Advanced Analytics</li>
+        </ul>
+      </div>
+      <div class="packages__add">
+        <div class="packages__add-control">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <button type="button" class="packages__add-btn">+</button>
+        </div>
+        <div class="packages__add-form" style="display: none;">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <div class="packages__add-input">
+            <input type="number" min="0" name="add_narrations_advanced"/>
+          </div>
+          <div class="packages__add-radioBtns">
+            <label class="packages__add-radioItem">
+              <span class="value">As a one time bulk</span>
+              <input type="radio" name="add_narrations_advanced_bulk">
+              <span class="checkmark"></span>
+            </label>
+            <label class="packages__add-radioItem">
+              <span class="value">As a monthy order</span>
+              <input type="radio" name="add_narrations_advanced_monthly">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages__item {% if view.kwargs.package == 'complete' %}is-selected{% endif %}" data-package="complete">
+      <div class="packages__recomended">
+        <span>Recomended package</span>
+        <img src="{% static "assets/img/icons/arrow.png" %}" width="36" height="30" />
+      </div>
+      <div class="packages__heading">
+        <div class="packages__name">Complete</div>
+        <a href="/payment/?type=monthly&amp;package=complete" class="packages__link">Select</a>
+        <div class="packages__price">
+          <div class="packages__price-monthly">
+            <span>$5,500</span><small>/mo</small>
+          </div>
+          <div class="packages__price-annual">
+            <span>$5,000</span><small>/mo</small>
+            <div class="packages__price-annual-text">billed annualy</div>
+          </div>
+        </div>
+      </div>
+      <div class="packages__description">
+        <ul class="packages__description-list">
+          <li>Up to 20 narrations/mo (1,500 words, $0.056 per additional word)</li>
+          <li>Unlimited audio file hosting</li>
+          <li>10TB bandwidth/mo</li>
+          <li>Customizable audio player and playlist</li>
+          <li>Your own dedicated audiohub page and distribution to the VoxSnap library</li>
+          <li>Distribution as a podcast stream to all the popular podcasting apps </li>
+          <li>Upload all your additional podcasts</li>
+          <li>Scheduled rollout</li>
+          <li>Alexa Skill+ Briefings</li>
+          <li>Google Home Action + News</li>
+          <li>Voice CTAs (Email me more info, Schedule consultation, etc.)</li>
+          <li>Integration of data with third party software (Hubspot, Marketo, Salesfource, etc.)</li>
+          <li>Complete Analytics</li>
+        </ul>
+      </div>
+      <div class="packages__add">
+        <div class="packages__add-control">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <button type="button" class="packages__add-btn">+</button>
+        </div>
+        <div class="packages__add-form" style="display: none;">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <div class="packages__add-input">
+            <input type="number" min="0" name="add_narrations_complete"/>
+          </div>
+          <div class="packages__add-radioBtns">
+            <label class="packages__add-radioItem">
+              <span class="value">As a one time bulk</span>
+              <input type="radio" name="add_narrations_complete_bulk">
+              <span class="checkmark"></span>
+            </label>
+            <label class="packages__add-radioItem">
+              <span class="value">As a monthy order</span>
+              <input type="radio" name="add_narrations_complete_monthly">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages__item {% if view.kwargs.package == 'custom' %}is-selected{% endif %}" data-package="custom">
+      <div class="packages__recomended">
+        <span>Recomended package</span>
+        <img src="{% static "assets/img/icons/arrow.png" %}" width="36" height="30" />
+      </div>
+      <div class="packages__heading">
+        <div class="packages__name">Contact us </div>
+        <a href="/payment/?type=monthly&amp;package=custom" class="packages__link">Select</a>
+        <div class="packages__price">
+          <div class="packages__price-monthly">
+            <span>Custom</span><small>/mo</small>
+          </div>
+          <div class="packages__price-annual">
+            <span>Custom</span><small>/mo</small>
+            <div class="packages__price-annual-text">billed annualy</div>
+          </div>
+        </div>
+      </div>
+      <div class="packages__description">
+        <ul class="packages__description-list">
+          <li>Up to 20+ narrations/mo (1,500 words, $0.056 per additional word)</li>
+          <li>Unlimited audio file hosting</li>
+          <li>Unlimited bandwidth</li>
+          <li>Customizable audio player and playlist</li>
+          <li>Your own dedicated audiohub page and distribution to the VoxSnap library</li>
+          <li>Distribution as a podcast stream to all the popular podcasting apps </li>
+          <li>Upload all your additional podcasts</li>
+          <li>Scheduled rollout</li>
+          <li>Alexa Skill+ Briefings</li>
+          <li>Google Home Action + News</li>
+          <li>Custom voice CTAs</li>
+          <li>Custom integration of data with third party software (Hubspot, Marketo, Salesfource, etc.)</li>
+          <li>Custom Analytics</li>
+          <li>Professional services including translations to different languages</li>
+        </ul>
+      </div>
+      <div class="packages__add">
+        <div class="packages__add-control">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <button type="button" class="packages__add-btn">+</button>
+        </div>
+        <div class="packages__add-form" style="display: none;">
+          <div class="packages__add-ttl">Add Narrations (if needed)</div>
+          <div class="packages__add-input">
+            <input type="number" min="0" name="add_narrations_custom"/>
+          </div>
+          <div class="packages__add-radioBtns">
+            <label class="packages__add-radioItem">
+              <span class="value">As a one time bulk</span>
+              <input type="radio" name="add_narrations_custom_bulk">
+              <span class="checkmark"></span>
+            </label>
+            <label class="packages__add-radioItem">
+              <span class="value">As a monthy order</span>
+              <input type="radio" name="add_narrations_custom_monthly">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+            <section class="contact-form">
+  <div class="contact-form__wrapper">
+    <div class="contact-form__title">If you would like a free consultation or if you have any questions please complete this form and we’ll get back to you ASAP</div>
+
+    <form class="contact-form__form" method="POST">
+      <div class="contact-form__row">
+        {% csrf_token %}
+        <input type="hidden" name="uuid" value="{{ lead.uuid }}" />
+        <input type="text" class="contact-form__input" name="full_name" placeholder="Full name" />
+        <input type="text" class="contact-form__input" name="company" placeholder="Company name" />
+        <input type="email" class="contact-form__input" name="email" placeholder="Email" />
+      </div>
+      <textarea class="contact-form__textarea" rows="5" placeholder="Please type here your question" /></textarea>
+      <button class="contact-form__btn" type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+  <div class="testimonials__inner">
+    <h3 class="testimonials__title">Clients Testimonials</h3>
+    <div class="testimonials__list">
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/jay-five@2x.jpg" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>A great way to increase brand awareness and post’s engagement. Our blog visitors love the audio!<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Jay Five</span>
+            <span class="testimonials__author-info">President &amp; CEO FusePhase</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/amy-kritzer@2x.jpg" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>I like the voice I picked a lot! The embeddable player was super easy to just pop in my posts.<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Amy Kritzer</span>
+            <span class="testimonials__author-info">Blogger, Entrepreneur and Author</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/rosemary-brisco@2x.png" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>Using VoxSnap to narrate totheweb.com blog posts and create an iTunes podcast channel. Awesome service with great pricing. Kudos to VoxSnap.<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Rosemary Brisco</span>
+            <span class="testimonials__author-info">Search Marketing Specialist, ToTheWeb</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/alex-bauer@2x.png" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>Our own team members have mentioned they would listen to content over reading it, we were excited when VoxSnap was able to easily transform our content in to audio.<span class="c"></span>         </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Alex Bauer</span>
+            <span class="testimonials__author-info">Marketing &amp; Developer Advocate, Branch.io</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- #temporarily removing due to spam... <div class="testimonials__cta">
+      <a href="/contact_us" class="btn btn--primary">Contact Us for More Information</a>
+    </div> -->
+  </div>
+</section>
+
+<footer class="main-footer">
+  <div class="main-footer__wrapper">
+    <div class="main-footer__social">
+      <a href="https://www.facebook.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+      </a>
+      <a href="https://twitter.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/voxsnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+      </a>
+    </div>
+    <div class="main-footer__info">
+      <p class="made">
+        <span>Made in </span>
+        <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+      </p>
+      <p class="legal">
+        <a href="/terms/">Terms of Use</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </p>
+      <p class="copyright">
+        Copyright &copy; {% now 'Y' %} VoxSnap Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93567103-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-93567103-1');
+      gtag('require', 'ecommerce');
+      const randInt = Math.random() * (999999999) + 1;
+      gtag('ecommerce:addTransaction', {
+        'id': randInt,
+        'affiliation': 'Pricing Questionaire',
+        'revenue': '10.00'
+      });
+      gtag('ecommerce:send');
+    </script>
+  <script>
+    // MainNav toggle menu on mobile
+    (function () {
+      var mainNav = document.querySelector('.main-nav');
+      var mainNavToggle = document.querySelector('.main-nav__toogle');
+
+      if (mainNavToggle) {
+        mainNavToggle.addEventListener('click', function () {
+          mainNav.classList.toggle('main-nav--opened');
+          document.body.classList.toggle('main-nav--noscroll');
+        });
+      }
+    })();
+
+    // Animating smooth scroll to id
+    (function () {
+      'use strict';
+
+      // Feature Test
+      if ('querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
+        // Function to animate the scroll
+        var smoothScroll = function (anchor, duration) {
+
+          // Calculate how far and how fast to scroll
+          var startLocation = window.pageYOffset;
+          var endLocation = anchor.offsetTop;
+          var distance = endLocation - startLocation;
+          var increments = distance / (duration / 16);
+          var stopAnimation;
+
+          if (mainNav.classList.contains('main-nav--opened')) {
+            mainNav.classList.toggle('main-nav--opened');
+            document.body.classList.toggle('main-nav--noscroll');
+          };
+
+          // Scroll the page by an increment, and check if it's time to stop
+          var animateScroll = function () {
+            window.scrollBy(0, increments);
+            stopAnimation();
+          };
+
+          // If scrolling down
+          if (increments >= 0) {
+            // Stop animation when you reach the anchor OR the bottom of the page
+            stopAnimation = function () {
+              var travelled = window.pageYOffset;
+              if ((travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight)) {
+                clearInterval(runAnimation);
+              }
+            };
+          }
+          // If scrolling up
+          else {
+            // Stop animation when you reach the anchor OR the top of the page
+            stopAnimation = function () {
+              var travelled = window.pageYOffset;
+              if (travelled <= (endLocation || 0)) {
+                clearInterval(runAnimation);
+              }
+            };
+          }
+
+          // Loop the animation function
+          var runAnimation = setInterval(animateScroll, 16);
+
+        };
+
+        // Define smooth scroll links
+        var scrollToggle = document.querySelectorAll('.scroll');
+
+        // For each smooth scroll link
+        [].forEach.call(scrollToggle, function (toggle) {
+
+          // When the smooth scroll link is clicked
+          toggle.addEventListener('click', function (e) {
+
+            // Prevent the default link behavior
+            e.preventDefault();
+
+            // Get anchor link and calculate distance from the top
+            var dataID = toggle.getAttribute('href');
+            var dataTarget = document.querySelector(dataID);
+            var dataSpeed = toggle.getAttribute('data-speed');
+
+            // If the anchor exists
+            if (dataTarget) {
+              // Scroll to the anchor
+              smoothScroll(dataTarget, dataSpeed || 500);
+            }
+          }, false);
+        });
+      }
+    })();
+
+    // New pricing page with questionaire
+    (function () {
+      var questionaireBtn = document.querySelector('#pricing-page__package--1');
+      var packageBtn = document.querySelector('#pricing-page__package--2');
+      var questionaireNextBtn = document.querySelector('#questionaire__submitBtn');
+      var pricingQuestionaire = document.querySelector('#pricing-page__questionaire');
+
+      var btnPricingMonthly = document.querySelector('#pricing-page__type--1');
+      var btnPricingAnnual = document.querySelector('#pricing-page__type--2');
+      var pricingPackages = document.querySelector('#pricing-page__packages');
+      var packagesItems = pricingPackages.querySelectorAll('.packages__item');
+
+      var questionaireNarrations = document.querySelector('#questionaire-narrations');
+      var questionaireDistribution = document.querySelector('#questionaire-distribution');
+      var questionaireAlexaBriefing = document.querySelector('#questionaire-alexa-briefing');
+      var questionaireAlexaSkill = document.querySelector('#questionaire-alexa-skill');
+      var questionaireAlexaNone = document.querySelector('#questionaire-alexa-none');
+      var questionaireGoogleNews = document.querySelector('#questionaire-google-news');
+      var questionaireGoogleAction = document.querySelector('#questionaire-google-action');
+      var questionaireGoogleNone = document.querySelector('#questionaire-google-none');
+      var questionaireIntegration = document.querySelector('#questionaire-integration');
+
+      questionaireBtn.addEventListener('click', function () {
+        window.location = "{% url 'pricing' %}";
+      });
+
+      function updatePricingUrls(type) {
+        var linkParams = '&narrations=' + pricingPackages.getAttribute('data-narrations') + '&distribution=' + pricingPackages.getAttribute('data-distribution');
+        for (var i = 0; i < packagesItems.length; i++) {
+          var package = packagesItems[i].getAttribute('data-package');
+          var link = packagesItems[i].querySelector('.packages__link');
+          link.href = '/payment/?type=' + type + '&package=' + package + linkParams;
+        };
+      };
+
+      btnPricingMonthly.addEventListener('click', function () {
+        btnPricingAnnual.classList.remove('is-active');
+        this.classList.add('is-active');
+
+        pricingPackages.classList.remove('packages--annual');
+        pricingPackages.classList.add('packages--monthly');
+
+        updatePricingUrls('monthly');
+      });
+
+      btnPricingAnnual.addEventListener('click', function () {
+        btnPricingMonthly.classList.remove('is-active');
+        this.classList.add('is-active');
+
+        pricingPackages.classList.remove('packages--monthly');
+        pricingPackages.classList.add('packages--annual');
+
+        updatePricingUrls('annual');
+      });
+    })();
+
+    (function () {
+      var packagesAddBtns = document.querySelectorAll('.packages__add-btn');
+
+      for (var i = 0; i < packagesAddBtns.length; i++) {
+        packagesAddBtns[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          this.parentElement.style.display = 'none';
+          this.parentElement.nextElementSibling.style.display = 'block';
+        });
+      }
+    })();
+  </script>
+  </body>
+</html>

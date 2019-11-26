@@ -1,0 +1,430 @@
+{% load static %}
+<html>
+<body>
+    <!--
+     Inconsistent or redundant class names:
+        card-media_btn   share-media_icon
+        icon_fb icon_facebook
+        icon_tw icon_twitter
+        card-media sharing_media_icons
+        card-shr btn_sharing - both buttons for displaying the sharing dialog
+        player-title_name  card-link - this is discutable but both contain media title
+
+    -->
+    <div id="player-basic">
+        <div class="player_container">
+            <div class="player_pht" style="display:none">
+                <img class="player_pht-img card-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" />
+                <a href="#" target="_blank" class="player_pht-url"></a>
+                <a href="#" target="_blank" class="player_pht-cat card-ctg_lnk"></a>
+            </div>
+            <div class="player_controls">
+                <button class="cnt_btn btn_rewind">
+                    <img src="https://data.voxsnap.com/player/img/back.png" alt="" width="34" height="34" />
+                </button>
+                <div class="cnt_btn cnt_btn--pp">
+                    <svg class="vxload-progress" width="72" height="72" style="opacity:0">
+                        <circle class="vxload-progress__meter" cx="36" cy="36" r="34" stroke-width="2" />
+                        <circle class="vxload-progress__value" cx="36" cy="36" r="34" stroke-width="2" />
+                    </svg>
+                    <button class="cnt_btn btn_play play-pause paused">
+                        <img src="https://data.voxsnap.com/player/img/play.png" class="play" alt="" width="22" height="27" />
+                        <img src="https://data.voxsnap.com/player/img/pause.png" class="pause" alt="" width="22" height="23" />
+                    </button>
+                </div>
+                <button class="cnt_btn btn_fastforward">
+                    <img src="https://data.voxsnap.com/player/img/forward.png" alt="" width="34" height="34" />
+                </button>
+                <button class="btn_speed">1<span class="span_speed_x">x</span></button>
+            </div>
+            <div class="player_info">
+                <div class="player_speed-options">
+                  <div class="player_speed-title">Audio Speed</div>
+                  <div class="player_speed-list">
+                    <div class="player_speed-item" data-speed="0.75">.75x</div>
+                    <div class="player_speed-item is-active" data-speed="1">1x</div>
+                    <div class="player_speed-item" data-speed="1.25">1.25x</div>
+                    <div class="player_speed-item" data-speed="1.5">1.5x</div>
+                  </div>
+                </div>
+                <div class="player_volume">
+                  <button class="player_volume-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13">
+                        <path fill="#5C5B69" fill-rule="nonzero" d="M6.933 11.53c0 .284-.142.542-.362.663a.553.553 0 0 1-.67-.099l-3.44-3.318H.63C.282 8.776 0 8.45 0 8.044V5.127c0-.405.282-.733.63-.733h1.832l3.44-3.318A.558.558 0 0 1 6.57.978c.22.12.362.379.362.662v9.89zm2.418-1.144a.587.587 0 0 1-.49-.213l-.084-.098a.823.823 0 0 1-.061-.954c.471-.74.72-1.616.72-2.535 0-.99-.283-1.917-.817-2.683a.822.822 0 0 1 .043-.98l.084-.097a.571.571 0 0 1 .477-.214c.177.01.343.108.456.268.74 1.056 1.132 2.337 1.132 3.706 0 1.274-.346 2.488-1.001 3.508a.612.612 0 0 1-.46.292zm2.601 2.263a.602.602 0 0 1-.48.26.588.588 0 0 1-.446-.214l-.082-.097a.823.823 0 0 1-.037-.989c1.015-1.405 1.574-3.188 1.574-5.023 0-1.909-.598-3.746-1.685-5.174A.822.822 0 0 1 10.821.41l.083-.096a.57.57 0 0 1 .464-.216.597.597 0 0 1 .452.246c1.313 1.72 2.037 3.938 2.037 6.242 0 2.216-.676 4.37-1.905 6.063z"/>
+                    </svg>
+                  </button>
+                  <div class="player_volume-timeline-wrap">
+                    <div class="player_volume-timeline">
+                      <div class="player_volume-value" style="width: 40%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn_sharing">Share</button>
+                <a class="player_link" href="https://voxsnap.com/" target="_blank">
+                    <img class="player_link-logo" src="https://data.voxsnap.com/player/img/logo_black.png" alt="" width="42" height="5" />
+                </a>
+                <h2 class="player-title">
+                    <b>Listen to this post:</b>
+                    <span class="player-title_name js-title"><!-- SONG TITLE HERE --></span>
+                </h2>
+                <div class="player_timeline-container">
+                    <div class="player_timeline" style="width: 100%;">
+                        <div class="player_timeline-value" style="width: 0%;"></div>
+                        <span class="timeline_indicator" style="left: -9px;"></span>
+                    </div>
+                    <span class="info_time-current">00:00</span>
+                    <span class="info_time-duration">00:00</span>
+                </div>
+                <div class="sharing_media">
+                    <button class="sharing_media-close">×</button>
+                    <span class="sharing_clipboard-res1">Copied!</span>
+                    <div class="sharing_media_icons">
+                        <a href="https://facebook.com/" target="_blank" class="share-media_icon icon_facebook" title="Share on Facebook"></a>
+                        <a href="https://twitter.com/intent/tweet?text=" target="_blank" class="share-media_icon icon_twitter" title="Share on Twitter"></a>
+                        <a href="https://www.linkedin.com/shareArticle?url=" target="_blank" class="share-media_icon icon_linkedin" title="Share on LinkedIn"></a>
+                        <a href="mailto:?body=" class="share-media_icon icon_mail" title="Share by Mail"></a>
+                        <a href="." class="share-media_icon icon_link" title="Copy Link" data-clipboard-action="copy"></a>
+                    </div>
+                </div>
+                <div class="sharing_code">
+                    <textarea class="sharing_code-text" readonly="">&lt;div id="voxsnap-player"&gt;&lt;/div&gt;&lt;script async type="text/javascript" src="%SCRIPT%" data-narration="%NARRATION%"&gt;&lt;/script&gt;</textarea>
+                    <button class="sharing_code-copy" data-clipboard-action="copy">Copy embedded code</button>
+                    <span class="sharing_clipboard-res2">Copied!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- v2 LIBRARY -->
+    <div id="library-july-2019">
+        <section class="library-card">
+            <div class="library-card__inner">
+                <div class="library-card__thumb">
+                    <div class="library-card__thumb-img">
+                        <img class="card-img" width="295" height="160" src="https://cdn.voxsnap.com/media/uploads/narration/ThinkResults-social_media.jpg.295x160_q85_crop-smart.jpg" alt="" />
+                    </div>
+                    <div class="library-card__va">
+                        <div class="library-card__va-thumb">
+                            <img src="{% static "assets/img/library/va-alexa-rounded.png" %}" width="32" height="32" alt="Alexa" />
+                        </div>
+                        <div class="library-card__va-content">
+                            <span>Alexa,</span> tell VoxSnap to play "The 6 Things Your Manicurist Wishes You Wouldn’t Do"
+                        </div>
+                    </div>
+                </div>
+                <div class="library-card__controls">
+                    <button class="card-ctl card-pl card-ctl_show library-card__controlsBtn is-play js-play-button">Listen</button>
+                    <button class="card-ctl card-ps card-ctl_hide library-card__controlsBtn is-pause js-stop-button">Listening</button>
+                </div>
+
+                <div class="library-card__content">
+                    <div class="library-card__content-info">
+                        <div class="library-card__time"><span class="js-duration-minutes">4 min</span></div>
+                        <div class="library-card__hub"><a target="_blank" href="#" class="js-audiohub-link">Audiohub</a></div>
+                    </div>
+                    <div class="library-card__category">
+                        <span class="category js-genre-primary">Business</span><span class="subcategory js-genre-secondary">Entrepreneurship</span>
+                    </div>
+                    <div class="library-card__text-wrap">
+                        <h3 class="library-card__title">
+                            <a href="/" target="_blank" class="js-title js-title-link">3 Ways to Make Better Decisions Using “The Power of Noticing”</a>
+                        </h3>
+                    </div>
+                    <p class="library-card__description js-excerpt">
+                        Recently, my mom came for a visit.  She read my blog and discovered her son has a crazy habit of running barefoot. After some convincing, …
+                    </p>
+                    <div class="library-card__info">
+                        <div class="library-card__link js-card-link">
+                            <span>From</span>
+                            <a href="/" target="_blank">Yahoo</a>
+                        </div>
+                        <div class="library-card__share">
+                            <button type="button" class="library-card__share-btn js-item-share">
+                                <img src="{% static "assets/img/icon_share.svg" %}" width="17" height="17" />
+                            </button>
+                            <div class="library-card__share-list js-item-share-list-library">
+                                <a href="/" class="library-card__share-link library-card__share-link--fb" title="Share on Facebook" target="_blank"></a>
+                                <a href="/" class="library-card__share-link library-card__share-link--tw" title="Share on Twitter" target="_blank"></a>
+                                <a href="/" class="library-card__share-link library-card__share-link--li" title="Share on LinkedIn" target="_blank"></a>
+                                <a href="/" class="library-card__share-link library-card__share-link--mail" title="Share by Mail" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="playlist-card__inner js-library-playlist">
+            <section class="playlist-card__info">
+                <div class="playlist-card__thumb">
+                    <img class="card-img" src="https://cdn.voxsnap.com/media/uploads/narration/ycombinator/yc.png.295x160_q85_crop-smart.jpg" width="295" height="160" alt="" />
+                </div>
+                <div class="playlist-card__category">
+                    <span class="category js-playlist-cat-primary">MAIN CATEGORY</span><span class="subcategory js-playlist-cat-secondary">SUB CATEGORY</span>
+                </div>
+                <div class="playlist-card__link">
+                    <a href="/" class="playlist-card__link-name js-playlist-user-name-readable js-playlist-user-link">Display url</a>
+                </div>
+            </section>
+
+            <section class="playlist-card__list">
+                <section class="playlist-card__list-inner js-playlist-items"></section>
+            </section>
+        </div>
+        <section class="playlist-card__item  js-library-playlist-item">
+            <div class="playlist-card__item-col-title">
+                <h4 class="playlist-card__item-title js-title">Long description/title</h4>
+            </div>
+            <div class="playlist-card__item-col-info">
+                <div class="playlist-card__item-col-time">
+                    <div class="playlist-card__item-time js-duration-minutes">duration min</div>
+                </div>
+                <div class="playlist-card__item-controls">
+                    <button class="card-ctl card-pl card-ctl_show playlist-card__controlsBtn is-play js-play-button">Listen</button>
+                    <button class="card-ctl card-ps card-ctl_hide playlist-card__controlsBtn is-pause js-stop-button">Listening</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- END v2 LIBRARY -->
+
+    <!-- NEW LIBRARY -->
+    <section class="library-card js-featured_item_new_template" id="library-item">
+        <div class="library-card__inner">
+            <div class="library-card__thumb">
+                <img width="295" height="160" src="https://cdn.voxsnap.com/media/uploads/narration/ThinkResults-social_media.jpg.295x160_q85_crop-smart.jpg" alt="" />
+            </div>
+            <div class="library-card__controls">
+                <button class="card-ctl card-pl card-ctl_show library-card__controlsBtn is-play js-play-button" style="display: inline-block;">Listen</button>
+                <button class="card-ctl card-ps card-ctl_hide library-card__controlsBtn is-pause js-stop-button" style="display: none;">Listening</button>
+            </div>
+            <div class="library-card__content">
+                <div class="library-card__time js-duration-minutes">4 min</div>
+                <div class="library-card__category">
+                    <span class="category js-genre-primary">Business</span><span class="subcategory js-genre-secondary">Entrepreneurship</span>
+                </div>
+                <h3 class="library-card__title">
+                    <a href="/" target="_blank">The 6 Things Your Manicurist Wishes You Wouldn’t Do</a>
+                </h3>
+                <p class="library-card__description">
+                    Several studies show how what you eat impacts how you work show how what you eat impacts how you work…
+                </p>
+            </div>
+            <div class="library-card__info">
+                <div class="library-card__link">
+                    <span>From</span>
+                    <a href="/" target="_blank">Yahoo</a>
+                </div>
+                <div class="library-card__share">
+                    <button type="button" class="library-card__share-btn js-item-share">
+                        <img src="{% static "assets/img/icon_share.svg" %}" width="17" height="17" />
+                    </button>
+                    <div class="library-card__share-list">
+                        <a href="/" class="library-card__share-link library-card__share-link--fb" title="Share on Facebook" target="_blank"></a>
+                        <a href="/" class="library-card__share-link library-card__share-link--tw" title="Share on Twitter" target="_blank"></a>
+                        <a href="/" class="library-card__share-link library-card__share-link--li" title="Share on LinkedIn" target="_blank"></a>
+                        <a href="/" class="library-card__share-link library-card__share-link--mail" title="Share by Mail" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="introduction-item-new">
+        <div class="library-selected__card" style="background-image: url(https://cdn.voxsnap.com/media/uploads/narration/blazemeter/blazemeter_What%20is%20the%20Relationship%20Between%20Users%20and%20Hits%20Per%20Second.jpg.295x160_q85_crop-smart.jpg);">
+            <div class="library-selected__card-inner">
+                <div class="library-selected__card-time"><span class="js-duration-minutes">4 min</span></div>
+                <div class="library-selected__card-category">
+                    <span class="category js-genre-primary">Business</span><span class="subcategory js-genre-secondary">Entrepreneurship</span>
+                </div>
+                <h3 class="library-selected__card-title ">
+                    <a href="/" target="_blank" class="js-title js-title-link">Big Data is not about the Data. It is about the Analytics.</a>
+                </h3>
+                <div class="library-selected__card-info">
+                    <div class="library-selected__card-link js-card-link">
+                        <a href="/" target="_blank">yahoo.com</a>
+                    </div>
+                    <div class="library-selected__card-controls">
+                        <button class="card-ctl card-pl card-ctl_show library-card__controlsBtn is-play js-play-button">Listen</button>
+                        <button class="card-ctl card-ps card-ctl_hide library-card__controlsBtn is-pause">Listening</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="featured-items-new" class="container">
+
+    </div>
+
+
+    <!-- END NEW LIBRARY END -->
+
+
+
+
+
+    <div class="featured_item voxsnap_featured_item">
+        <div class="col-sm-6 col-md-4">
+            <div class="card">
+                <div class="card-cntr">
+                    <button class="card-ctl card-pl card-ctl_show">Listen</button>
+                    <button class="card-ctl card-ps card-ctl_hide">Listening</button>
+                </div>
+                <div class="card-pht">
+                    <img class="card-img" src="https://voxsnap.com/img/blog/blog_item1.jpg" width="295" height="160" alt="" />
+                </div>
+                <div class="card-cont">
+                    <p class="card-ctg">
+                        <span class="card-ctg_lnk">CATEGORY</span>
+                        <a href="#" target="_blank" class="card-company"></a>
+                    </p>
+                    <h4 class="card-ttl">
+                        <a class="card-link" href="https://voxsnap.com/" title="" target="_blank"></a>
+                    </h4>
+                    <span class="card-time-mins"></span>
+                    <button class="card-shr" type="button">Share</button>
+                    <div class="card-media sharing_media_icons">
+                        <a href="#" class="card-media_btn share-media_icon icon_fb icon_facebook" title="Share on Facebook" target="_blank"></a>
+                        <a href="#" class="card-media_btn share-media_icon icon_tw icon_twitter" title="Share on Twitter" target="_blank"></a>
+                        <a href="#" class="card-media_btn share-media_icon icon_lnkd icon_linkedin" title="Share on LinkedIn" target="_blank"></a>
+                        <a href="#" class="card-media_btn share-media_icon icon_mail" title="Share by Mail" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="introduction-item">
+        <div class="row card-lg" style="background-image: url(https://voxsnap.com/img/lbr-slc.png);">
+            <div class="col-xs-6 card-lg_col-l">
+                <div class="card-cntr">
+                    <button class="card-ctl card-pl card-ctl_show">Listen</button>
+                    <button class="card-ctl card-ps card-ctl_hide">Listening</button>
+                </div>
+            </div>
+            <div class="col-xs-6 card-lg_col-r">
+                <p class="card-ctg"><span class="card-ctg_lnk"></span></p>
+                <h4 class="card-ttl">
+                    <a class="card-link" href="https://voxsnap.com/" title="" target="_blank"></a>
+                </h4>
+                <span class="card-time-mins card-time-mins-white"><!-- Play time in minutes --></span>
+            </div>
+        </div>
+    </div>
+    <div id="featured-items" class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="lbr-ftd_ttl">Featured</h3>
+            </div>
+        </div>
+        <div class="row item-row">
+
+        </div>
+    </div>
+    <div id="library-items" class="container">
+        <div class="row item-row"></div>
+    </div>
+    <ul id="filter_button">
+        <li><a href="#" class="fltr-itm"></a></li>
+    </ul>
+    <div class="playlist">
+        <div class="playlist_items-list">
+        </div>
+    </div>
+    <div class="playlist_item">
+        <div class="playlist_item-data">
+            <span class="playlist_item-ttl player-title_name js-title"></span><!-- player-title_name is already used for filling song titles into elements-->
+        </div>
+        <div class="playlist_item-info">
+            <span class="playlist_item-drtn js-duration-minutes"></span><!--info_time-duration should be the calss name for time duration elements-->
+        </div>
+    </div>
+    <!-- PRO PLAYER -->
+    <div id="player-pro">
+        <div class="player_container">
+            <div class="player_wrapper">
+                <div class="player_inner">
+                    <div class="player_controls">
+                        <button class="cnt_btn btn_rewind">
+                            <img src="https://data.voxsnap.com/player/img/btn-rw.svg" width="34" height="34" alt="rewind 15s" />
+                        </button>
+                        <div class="cnt_btn cnt_btn--pp">
+                            <svg class="vxload-progress" width="72" height="72" style="opacity:0">
+                                <circle class="vxload-progress__meter" cx="36" cy="36" r="34" stroke-width="2" />
+                                <circle class="vxload-progress__value" cx="36" cy="36" r="34" stroke-width="2" />
+                            </svg>
+                            <button class="cnt_btn btn_play play-pause paused">
+                                <img src="https://data.voxsnap.com/player/img/btn-play.svg" class="btn_play" width="56" height="56" alt="play" />
+                                <img src="https://data.voxsnap.com/player/img/btn-pause.svg" class="btn_pause" width="56" height="56" alt="pause" />
+                            </button>
+                        </div>
+                        <button class="cnt_btn btn_fastforward">
+                            <img src="https://data.voxsnap.com/player/img/btn-ff.svg" width="34" height="34" alt="fastforward 15s" />
+                        </button>
+                    </div>
+                    <div class="player_data">
+                        <div class="player_info">
+                            <p class="player-category"></p>
+                            <h2 class="player-title">
+                                <span class="player-title_name"></span>
+                                <a href="#" target="_blank" class="player-title__link-btn"><img src="https://data.voxsnap.com/player/img/btn-open.svg" class="player-open" width="13" height="13" alt="open link" /></a>
+                            </h2>
+                        </div>
+                        <div class="sharing_media">
+                            <button class="btn_sharing">Share</button>
+                            <div class="playlist_share-list">
+                                <div class="sharing_media_icons">
+                                    <a href="#" class="share-media_icon icon_facebook" target="_blank"></a>
+                                    <a href="#" class="share-media_icon icon_twitter" target="_blank"></a>
+                                    <a href="#" class="share-media_icon icon_linkedin" target="_blank"></a>
+                                    <a href="#" class="share-media_icon icon_mail"></a>
+                                    <a href="#" class="share-media_icon icon_link"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player_waves">
+                    <canvas class="player-canvas"></canvas>
+                    <canvas class="player-canvas-white"></canvas>
+                </div>
+                <div class="player_timeline-container">
+                    <span class="player_time info_time-current">00:00</span>
+                    <a href="https://voxsnap.com" target="_blank" class="player_link-logo"><span>Powered by</span><img src="https://data.voxsnap.com/player/img/logo-pro.svg" width="54" height="8" alt="VoxSnap" /></a>
+                    <span class="player_time info_time-duration">00:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="playlist">
+            <div class="playlist_items-wrapper">
+                <div class="playlist_items-list">
+                </div>
+            </div>
+        </div>
+
+        <div class="playlist_item">
+            <div class="playlist_item-num">
+                <span class="playlist_item__num"></span>
+                <img src="https://data.voxsnap.com/player/img/playlist-indicator.svg" class="playlist_item__indicator" width="9" height="11" />
+            </div>
+            <div class="playlist_item-data">
+                <h3 class="playlist_item-ttl player-title_name js-title"></h3>
+            </div>
+            <div class="sharing_media">
+                <button class="btn_playlist_sharing">Share</button>
+                <div class="playlist_share-list">
+                    <div class="sharing_media_icons">
+                        <a href="#" class="share-media_icon icon_facebook" target="_blank"></a>
+                        <a href="#" class="share-media_icon icon_twitter" target="_blank"></a>
+                        <a href="#" class="share-media_icon icon_linkedin" target="_blank"></a>
+                        <a href="#" class="share-media_icon icon_mail"></a>
+                        <a href="#" class="share-media_icon icon_link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist_item-info">
+                <span class="playlist_item-drtn js-duration-minutes">00:00</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

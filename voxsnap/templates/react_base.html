@@ -1,0 +1,36 @@
+{% load static compress %}
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>{% block head_title %}{% endblock %} | {{ PROJECT_NAME }}</title>
+
+    {% render_bundle 'main' 'css' %}
+    
+    {# example of how 'bundle.css' was included for production deployment: #}
+    {#<link rel="stylesheet" type="text/css" href="{% static 'react/bundle.css' %}"/>#}
+    {# <link rel="stylesheet" type="text/x-scss" href="{% static 'css/custom-style.scss' %}"/> #}
+
+    {% block styles %}{% endblock %}
+
+    {{ HEAD_CLOSING|safe }}
+  </head>
+  <body>
+    {% csrf_token %}
+
+    {% block content %}{% endblock %}
+
+    {% block js_constants %}{% endblock %}
+
+    {% include "parts/scripts.html" %}
+    {% render_bundle 'main' 'js' %}
+
+    {% block scripts %}{% endblock %}
+
+    {{ BODY_CLOSING|safe }}
+  </body>
+</html>

@@ -1,0 +1,8 @@
+[submodule "assets"]
+	path = assets
+	url = git@github.com:robd003/voxsnap-website.git
+	branch = master
+[submodule "frontend/voxsnap_modules/voxsnap-embedded-player"]
+	path = frontend/voxsnap_modules/voxsnap-embedded-player
+	url = git@github.com:robd003/voxsnap-embedded-player.git
+	branch = master

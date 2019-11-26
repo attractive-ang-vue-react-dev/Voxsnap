@@ -1,0 +1,27 @@
+{% extends "auth_base.html" %}
+{% load i18n static compress %}
+
+{% block head_title %}{% trans "Finish your registration as agent" %} | {% endblock %}
+
+{% block form_title %}{{ key_user.first_name  }}, {% trans 'please setup a Password' %}{% endblock %}
+
+{% block login_form_content %}
+    <form class="form password-setup" method="post">
+        {% csrf_token %}
+        <div class="form-error-block">
+            {% for error in form.non_field_errors %}
+            <small class="form-error">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        {% trans "Password" as password %}
+        {% trans "Repeat password" as repeat_password %}
+
+        {% include 'parts/form_input.html' with input=form.password1 label=password  %}
+        {% include 'parts/form_input.html' with input=form.password2 label=repeat_password %}
+
+        <div class="button-block">
+            <button class="button save-password" type="submit">{% trans 'Save Password' %}</button>
+        </div>
+    </form>
+{% endblock %}

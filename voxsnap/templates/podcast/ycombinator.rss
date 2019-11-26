@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Startup Playbook by Sam Altman</title>
+<link>https://ycombinator.com</link>
+<language>en-us</language>
+<copyright>&#xA9; 2019 Y Combinator</copyright>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:owner>
+<itunes:email>team@voxsnap.com</itunes:email>
+<itunes:name>Y Combinator</itunes:name>
+</itunes:owner>
+<itunes:summary>To have a successful startup, you need: a great idea, a great market, a great team, a great product, and great execution.</itunes:summary>
+<description>To have a successful startup, you need: a great idea, a great market, a great team, a great product, and great execution.</description>
+<itunes:image href="http://podcast.voxsnap.com/30/img/podcast.jpg"/>
+<itunes:category text="Business"/>
+<itunes:explicit>no</itunes:explicit>
+
+<item>
+<title>Startup Playbook - Intro</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Intro</itunes:subtitle>
+<itunes:summary>We spend a lot of time advising startups. Though one-on-one advice will always be crucial, we thought it might help us scale Y Combinator if we could distill the most generalizable parts of this advice into a sort of playbook we could give YC and YC Fellowship companies.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-intro.mp3"/>
+<guid>b9ce93cc-7aa3-4f9f-a01a-3c6d10f48c39</guid>
+<pubDate>Fri, 14 Sep 2018 06:12:00 +0000</pubDate>
+<itunes:duration>0:02:12</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - The Idea</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - The Idea</itunes:subtitle>
+<itunes:summary>One of the first things we ask YC companies is what they&amp;rsquo;re building and why.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-idea.mp3"/>
+<guid>3f3d43b6-b596-421a-8e88-1b4662497251</guid>
+<pubDate>Fri, 14 Sep 2018 06:11:00 +0000</pubDate>
+<itunes:duration>0:05:43</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - A Great Team</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - A Great Team</itunes:subtitle>
+<itunes:summary>Mediocre teams do not build great companies. One of the things we look at the most is the strength of the founders. When I used to do later-stage investing, I looked equally hard at the strength of the employees the founders hired.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-team.mp3"/>
+<guid>f88c65fd-abd7-4006-a40b-d94695c10772</guid>
+<pubDate>Fri, 14 Sep 2018 06:10:00 +0000</pubDate>
+<itunes:duration>0:02:39</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - A Great Product</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - A Great Product</itunes:subtitle>
+<itunes:summary>Here is the secret to success: have a great product. This is the only thing all great companies have in common.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-product.mp3"/>
+<guid>4ccb9928-3f2f-4f40-95c6-4ef47600b5d6</guid>
+<pubDate>Fri, 14 Sep 2018 06:09:00 +0000</pubDate>
+<itunes:duration>0:03:49</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Great Execution</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Great Execution</itunes:subtitle>
+<itunes:summary>Although it&amp;rsquo;s necessary to build a great product, you&amp;rsquo;re not done after that. You still have to turn it into a great company, and you have to do it yourself&amp;mdash;the fantasy of hiring an &amp;ldquo;experienced manager&amp;rdquo; to do all this work is both extremely prevalent and a graveyard for failed companies. You cannot outsource the work to someone else for a long time.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-execution.mp3"/>
+<guid>e9a47516-802f-4352-9e4e-329a32586a94</guid>
+<pubDate>Fri, 14 Sep 2018 06:08:00 +0000</pubDate>
+<itunes:duration>0:04:20</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Growth</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Growth</itunes:subtitle>
+<itunes:summary>Growth and momentum are the keys to great execution. Growth (as long as it is not &amp;ldquo;sell dollar bills for 90 cents&amp;rdquo; growth) solves all problems, and lack of growth is not solvable by anything but growth. If you&amp;rsquo;re growing, it feels like you&amp;rsquo;re winning, and people are happy. If you&amp;rsquo;re growing, there are new roles and responsibilities all the time, and people feel like their careers are advancing. If you&amp;rsquo;re not growing, it feels like you&amp;rsquo;re losing, and people are unhappy and leave. If you&amp;rsquo;re not growing, people just fight over responsibilities and blame.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-growth.mp3"/>
+<guid>30d3565d-ced1-4411-b72e-d59da51be27c</guid>
+<pubDate>Fri, 14 Sep 2018 06:07:00 +0000</pubDate>
+<itunes:duration>0:06:19</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Focus &amp; Intensity</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Focus &amp; Intensity</itunes:subtitle>
+<itunes:summary>If I had to distill my advice about how to operate down to only two words, I&amp;rsquo;d pick focus and intensity. These words seem to really apply to the best founders I know.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-focus.mp3"/>
+<guid>57d7da75-2057-44a2-88ac-05d1bb02dc2e</guid>
+<pubDate>Fri, 14 Sep 2018 06:06:00 +0000</pubDate>
+<itunes:duration>0:03:15</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Jobs of the CEO</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Jobs of the CEO</itunes:subtitle>
+<itunes:summary>Earlier I mentioned that the only universal job description of the CEO is to make sure the company wins. Although that&amp;rsquo;s true, I wanted to talk a little more specifically about how a CEO should spend his or her time.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-ceo.mp3"/>
+<guid>c2a451bb-3213-406b-b939-48e07ae6ba18</guid>
+<pubDate>Fri, 14 Sep 2018 06:05:00 +0000</pubDate>
+<itunes:duration>0:05:58</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Hiring &amp; Managing</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Hiring &amp; Managing</itunes:subtitle>
+<itunes:summary>Hiring is one of your most important jobs and the key to building a great company (as opposed to a great product.)</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-hiring.mp3"/>
+<guid>11193306-0f45-4ee0-a7b1-b2d30377a97d</guid>
+<pubDate>Fri, 14 Sep 2018 06:04:00 +0000</pubDate>
+<itunes:duration>0:03:51</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Competitors</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Competitors</itunes:subtitle>
+<itunes:summary>A quick word about competitors: competitors are a startup ghost story. First-time founders think they are what kill 99% of startups. But 99% of startups die from suicide, not murder. Worry instead about all of your internal problems. If you fail, it will very likely be because you failed to make a great product and/or failed to make a great company.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-competition.mp3"/>
+<guid>52e1b015-d92f-4a9a-a65e-7b59d2bca91a</guid>
+<pubDate>Fri, 14 Sep 2018 06:03:00 +0000</pubDate>
+<itunes:duration>0:00:58</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Making Money</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Making Money</itunes:subtitle>
+<itunes:summary>Oh yes, making money. You need to figure out how to do that.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-money.mp3"/>
+<guid>444d29d7-69cb-4ab3-8818-c74391df30df</guid>
+<pubDate>Fri, 14 Sep 2018 06:02:00 +0000</pubDate>
+<itunes:duration>0:01:33</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Fundraising</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Fundraising</itunes:subtitle>
+<itunes:summary>Most startups raise money at some point.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-fundraising.mp3"/>
+<guid>f1ab9b00-1c3d-4ff4-9621-5d9c83fa53ba</guid>
+<pubDate>Fri, 14 Sep 2018 06:01:00 +0000</pubDate>
+<itunes:duration>0:00:54</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+<item>
+<title>Startup Playbook - Closing Thought</title>
+<itunes:author>Y Combinator</itunes:author>
+<itunes:subtitle>Startup Playbook - Closing Thought</itunes:subtitle>
+<itunes:summary>Remember that at least a thousand people have every great idea. One of them actually becomes successful. The difference comes down to execution. It&amp;rsquo;s a grind, and everyone wishes there were some other way to transform &amp;ldquo;idea&amp;rdquo; into &amp;ldquo;success&amp;rdquo;, but no one has figured it out yet.</itunes:summary>
+<content:encoded></content:encoded>
+<enclosure length="0" type="audio/mpeg" url="http://podcast.voxsnap.com/30/audio/2018/09/14/ycombinator-closing.mp3"/>
+<guid>4a5f87c2-b332-412b-8966-dceee7109997</guid>
+<pubDate>Fri, 14 Sep 2018 06:00:00 +0000</pubDate>
+<itunes:duration>0:00:43</itunes:duration>
+<itunes:explicit>no</itunes:explicit>
+</item>
+
+</channel>
+</rss>

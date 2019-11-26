@@ -1,0 +1,40 @@
+{% load i18n %}
+
+New Order for:
+
+Company: {{ order.user.customer.company_name }}
+Phone: {{ order.user.customer.phone_number }}
+Name: {{ order.user.get_full_name }}
+Email: {{ order.user.email }}
+
+Payment date:
+{{ order.created }}
+
+Order Summary:
+{% if order.notes %}Order Notes: {{ order.notes }}{% endif %}
+{{ order.quantity }} Narration(s): ${{ order.unit_price|floatformat:2 }}
+{% if additional_amount %}Additional per word charge: ${{ additional_amount|floatformat:2 }}{% endif %}
+
+    Narrations ordered:
+    {% for narration_data in order.narrations.all %}
+        Url: {{ narration_data.url }}
+        Word count: {{ narration_data.word_count }}
+        Narrator: {{ narration_data.narrator.id }}: {{ narration_data.narrator.first_name }} {{ narration_data.narrator.last_name }}{% if narration_data.notes %}
+        Notes: {{ narration_data.notes }}{% endif %}
+    {% endfor %}
+
+{% if additional_services_data %}
+    Additional services:
+    {% for additional_service_data in additional_services_data %}
+        {{ additional_service_data.title }} - ${{ additional_service_data.price }}
+    {% endfor %}
+{% endif %}
+
+{% if order.promo_code %}Discount: ${{ order.discount|floatformat:2 }}{% endif %}
+
+Total: ${{ order.price|floatformat:2 }}
+
+{% if confirmation_link %}
+    Copy the link below to set up the password for your account:
+    http://{{ site }}{{ confirmation_link }}
+{% endif %}

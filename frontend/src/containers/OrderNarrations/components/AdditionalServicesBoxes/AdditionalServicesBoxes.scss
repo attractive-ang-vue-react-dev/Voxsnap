@@ -1,0 +1,117 @@
+.AdditionalServices {
+  // max-width: 1180px;
+  // margin: 0 auto;
+
+  // color: #7b7c8c;
+  // border-radius: 4px;
+  // border: 1px solid #e8e8e8;
+  // box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.08);
+  // background: #fff;
+
+  &-colElements {
+    position: relative;
+  }
+
+  &-services {
+    padding: 0 22px;
+  }
+
+  &-servicesItem {
+    position: relative;
+    max-width: 550px;
+    margin: 0 0 17px;
+    padding: 12px 7px 0;
+
+    text-align: center;
+
+    border-radius: 4px;
+    border: 1px solid rgba(186, 193, 201, 0.66);
+  }
+
+  &-servicesItemName {
+    font-family: AvenirNext;
+    margin: 0 0 6px;
+    padding: 0;
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 28px;
+    color: #494a5e;
+  }
+
+  &-servicesItemDesc {
+    margin: 0 2px 19px;
+    padding: 0;
+
+    font-family: AvenirNext;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    color: #7b7c8c;
+  }
+
+  &-servicesItemInfo {
+    margin: 0 -7px;
+    padding: 13px 10px;
+
+    font-family: Helvetica;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ff5d86;
+
+    border-top: 1px solid rgba(186, 193, 201, 0.66);
+    //cursor: pointer;
+  }
+
+  &-servicesInfo {
+    flex: 0 0 100%;
+    font-family: AvenirNext;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #7b7c8c;
+  }
+
+  @media (min-width: 768px) {
+    &-colElements {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    &-services {
+      flex: 0 0 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    &-servicesItem {
+      flex: 0 0 32%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-servicesItemName {
+      flex: 0 0 auto;
+    }
+
+    &-servicesItemDesc {
+      flex: 0 0 auto;
+    }
+
+    &-servicesItemInfo {
+      flex: 0 0 auto;
+    }
+  }
+
+  @media (min-width: 992px) {
+    &-colElements {
+      flex: 0 0 67%;
+    }
+  }
+}

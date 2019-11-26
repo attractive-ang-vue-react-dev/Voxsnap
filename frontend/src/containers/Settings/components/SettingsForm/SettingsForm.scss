@@ -1,0 +1,30 @@
+@import "../../../../utils/mixins";
+
+.settings-form {
+  @include white-content;
+
+  padding: 30px 0;
+
+  .submit-button-container {
+    text-align: center;
+    padding: 40px 0;
+
+    button {
+      width: 300px;
+    }
+  }
+}
+
+.preview-color {
+  width: 44px;
+  height: 44px;
+  border-radius: 5px;
+  margin-left: 2px;
+}
+
+.preview-color {
+  width: 44px;
+  height: 44px;
+  border-radius: 5px;
+  margin-left: 2px;
+}

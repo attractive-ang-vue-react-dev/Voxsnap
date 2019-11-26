@@ -1,0 +1,15 @@
+@import "../../../../utils/mixins";
+
+.distribution-details {
+  padding: 50px 20px;
+
+  .distribution {
+    @include white-content;
+    padding: 30px 0 0;
+
+    .distribution-elements {
+      display: flex;
+      flex: 1 1 auto;
+    }
+  }
+}

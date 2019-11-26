@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VoxSnap: Payment</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.voxsnap.com/sales_custom/css/style.css">
+	<style>
+	.price { margin-top: 12px; display: inline-block; vertical-align: middle; color: #41d3ac; }
+	</style>
+</head>
+<body>
+	<nav class="dash-nav signin-nav">
+		<div class="container">
+			<div class="row">
+				<a class="signin-nav_logo" href="/"><img src="https://cdn.voxsnap.com/v2/assets/img/logo.png" width="168" height="23" alt=""></a>
+			</div>
+		</div>
+	</nav>
+	<main class="dash-main">
+		<form action="/payment/order/atrium/" method="POST" id="narr-order_form" data-parsley-validate>
+			{% csrf_token %}
+			<div class="container dash-cont">
+				<div class="row dash-row dash-row_heading">
+					<div class="col-xs-12">
+						<h2 class="dash-page_title">VoxSnap Order</h2>
+					</div>
+				</div>
+				<div class="row dash-row">
+					<div class="col-md-4">
+						<h4 class="dash-row_title">Company</h4>
+					</div>
+					<div class="col-md-4 dash-col">
+						<label for="cmpn-name">Name</label>
+						<input type="text" class="dash-input" name="company" id="cmpn-name" value="Atrium">
+					</div>
+					<div class="col-md-4 dash-col">
+						<label for="phone">Phone Number</label>
+						<input type="text" class="dash-input" name="phone" id="phone" value="">
+					</div>
+				</div>
+				<div class="narr-order_list">
+					<div class="row">
+						<div class="col-xs-12">
+							<h1 class="dash-row_title">Starter Package</h1>
+							<h4>Total for 6 months: $3,750 ($625/mo)</h4>
+							<h4>If extended to annual plan price reduces to $600/month</h4>
+						</div>
+					</div>
+					<div id="narr-order_itms" class="narr-order_itms">
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Production of up to 4 audio narrations per month by professional voice actors
+								<br/>(1,500 words, $0.056 per additional word)
+								<br/>Narrations that are not used in a month roll over to the next month or are used for extra words surcharge.</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Hosting of audio files</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">250GB bandwidth/mo</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Embeddable player customized to Atrium's brand color</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Audio placement in VoxSnap Library and the VoxSnap Alexa Skill</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Your own dedicated audiohub page</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Setup and Distribution as a podcast stream to all the popular podcasting apps, i.e. Apple iTunes Podcasts, Google Podcasts, TuneIn (plays in Tesla cars), Spotify</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Scheduled rollouts of Podcasts</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Search Engine Optimization for Audio: Rank in top Google results for content, as well as play directly in Google</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Social media previews as videos</span>
+							</div>
+						</div>
+						<div class="row narr-order_item">
+							<div class="col-xs-12 col-sm-8">
+								<span style="margin-top: 12px; display: inline-block;">Analytics</span>
+							</div>
+						</div>
+						<input type="text" hidden name="quantity" value="3" id="narr-order_itms-count">
+					</div>
+				</div>
+				<div class="row dash-row">
+					<div class="col-md-4">
+						<h4 class="dash-row_title">Total Price</h4>
+					</div>
+					<div class="col-md-8 ordr-final text-center">
+						<span class="ordr-price">$3750 / year</span>
+						<!--<span class="ordr-details">start completing your order</span>-->
+					</div>
+				</div>
+				<div class="row dash-row_btn">
+					<div class="col-xs-12">
+						<button type="submit" class="dash_btn cmpl_btn" id="completePayment">
+							COMPLETE PAYMENT
+						</button>
+						<p class="text-center paym-agreement">
+							By Paying I agree to <a href="https://voxsnap.com/terms/" target="_blank">terms of use</a> and <a href="https://voxsnap.com/privacy/" target="_blank">privacy policy</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+
+	<footer class="dash-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-7 text-left dash-footer_links">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="https://voxsnap.com/privacy/" target="_blank">Privacy Policy</a></li>
+						<li><a href="https://voxsnap.com/terms/" target="_blank">Terms of Use</a></li>
+						<!-- <li><a href="#">Jobs</a></li> -->
+					</ul>
+				</div>
+				<div class="col-md-5 text-right dash-footer_info">
+					<small>Copyright © 2019 VoxSnap Inc. All rights reserved.</small>
+					<!-- <a class="dash-help" href="#">Help Desk</a> -->
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/template" id="narr-order-item-tmpl">
+		<div class="row narr-order_item">
+			<div class="col-xs-12 col-sm-8">
+				<input type="text" class="dash-input" name="url" placeholder="Add Post Url" pattern="((https?:\/\/)?(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|(https?:\/\/)?(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})">
+			</div>
+			<div class="col-xs-8 col-sm-3">
+				<div class="block-select">
+					<select name="preferred_gender" class="narr-type">
+				<option value="male">Male</option><option value="female">Female</option>
+				</select>
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-1 text-center">
+				<button type="button" class="narr-order_del">&times;</button>
+			</div>
+		</div>
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.min.js"></script>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<script>
+		$(document).ready(function() {
+			//$('#narr-order_add').click(addNarrOrdr);
+			//$('#narr-order_itms').on('click', '.narr-order_del', delNarrOrdr);
+
+			var handler = StripeCheckout.configure({
+				//key: 'pk_live_IDiR7jzjUcdFK9SHdp6ZFBcz',
+				key: 'pk_test_rm2tOCPyFEdSihS9kiyPHW5L',
+				image: 'https://cdn.voxsnap.com/v2/assets/img/logo_square.png',
+				name: 'VoxSnap',
+				locale: 'auto',
+				zipCode: true,
+				billingAddress: true,
+				token: function(token) {
+					var $id = $('<input type=hidden name=stripeToken />').val(token.id);
+					var $email = $('<input type=hidden name=stripeEmail />').val(token.email);
+					$('#narr-order_form').append($id).append($email).submit();
+				}
+	    });
+
+			$('#order-cms').change(function () {
+				checkSelect($(this), 'other', $('#narr-cms_oth'));
+			});
+
+			function checkAddUrlField(event) {
+				var urlsTotal = getValidUrlsCount();
+				var inputEls = $('.narr-order_item').find('.dash-input');
+
+				if (!urlsTotal) {
+					if (!inputEls.length) {
+						addNarrOrdr(event);
+						inputEls = $('.narr-order_item').find('.dash-input');
+					}
+					inputEls.first().prop('required', 'required');
+				} else {
+					inputEls.first().removeProp('required');
+				}
+			}
+
+			function addNarrOrdr(event) {
+				var tmpl = $('#narr-order-item-tmpl').text();
+				var shouldFocus = event.type === 'click';
+
+				$(tmpl).hide().appendTo("#narr-order_itms").fadeIn(500, function () {
+					if (shouldFocus) {
+						$(this).find(':input').first().focus();
+					}
+				});
+			}
+
+			function delNarrOrdr(event) {
+				$(this).closest('.narr-order_item')
+					.fadeOut(500, function () {
+						$(this).remove();
+						countPrice(event);
+					});
+			}
+
+			function checkSelect(sel, val, inp) {
+				if (sel.val() == val)
+					inp.fadeIn(250);
+				else {
+					if (inp.is(':visible')) {
+						inp.fadeOut(250).val('');
+					}
+				}
+			}
+
+			function countPrice(event) {
+				var urlsTotal = getValidUrlsCount();
+				if(urlsTotal >= 1) {
+					var dispPrice = 30;
+					if (urlsTotal > 20) {
+						dispPrice = 25;
+					} else if (urlsTotal > 9) {
+						dispPrice = 27;
+					}
+					var ordrPrice = urlsTotal * dispPrice;
+
+					$('#narr-order_itms-count').val(urlsTotal);
+
+					$('#narr-order_form .ordr-price').text('$' + ordrPrice);
+					$('#narr-order_form .ordr-details').text(urlsTotal + ' narration(s) for $' + dispPrice + ' each');
+				}
+			}
+
+			function getValidUrlsCount() {
+				var urlsIndividual = $('.narr-order_item')
+					.find('.dash-input')
+					.filter(function (index, input) {
+						return $(input).val().trim();
+					}).length;
+				console.log('total order rows = ', urlsIndividual);
+
+				var urlsMultiple = $('#ordr-urls_mult')
+					.find('.order-links')
+					.val().split(",")
+					.filter(function (url) {
+						return url.trim();
+					}).length;
+				console.log('total mult url = ', urlsMultiple);
+
+				var urlsTotal = urlsMultiple + urlsIndividual;
+				console.log('total urls = ', urlsTotal);
+
+				return urlsTotal;
+			}
+
+			document.getElementById('completePayment').addEventListener('click', function(e) {
+					//checkAddUrlField(e);
+
+					var form = $('#narr-order_form');
+					if (form.parsley().validate()) {
+						handler.open({
+							description: 'VoxSnap Starter Package',
+							amount: 375000
+						});
+						e.preventDefault();
+					} else {
+						e.preventDefault();
+					}
+			});
+
+			// Close Checkout on page navigation:
+	    window.addEventListener('popstate', function() {
+	        handler.close();
+	    });
+		});
+	</script>
+</body>
+</html>
+

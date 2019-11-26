@@ -1,0 +1,17 @@
+        {% for blog_post in blogs %}
+        <article class="card">
+          <a href="{{ blog_post.get_absolute_url }}" class="card__link">
+            <section class="card__photo">
+              <img src="{% thumbnail blog_post.featured_image 295x195 crop="smart" upscale %}" width="295" height="195" alt="">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="card__photo-shape" width="295" height="25">
+                  <path d="M 0 25,0 0,295 25 z" fill="#fff"></path>
+                </svg>
+            </section>
+            <section class="card__content">
+              <h3 class="card__title">
+                  {{ blog_post.title }}
+                </h3>
+            </section>
+          </a>
+        </article>
+        {% endfor %}

@@ -1,0 +1,58 @@
+{% load static compress %}
+{% load render_bundle from webpack_loader %}
+{% load plotly_dash %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Voxsnap</title>
+
+        {% plotly_header %}
+        
+        {% block app_header_css %}
+        
+        {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/app/analytics.scss' %}"></link>
+        {% endcompress %}
+        {% endblock%}
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="dashboard-base">
+                <div class="main-menu">
+                    <div class="container">
+                        <div class="nav-menu">
+                            <a href="/" class="logo">
+                                <img src="https://cdn.voxsnap.com/static/react/imgs/logo.svg" alt="Voxsnap">
+                            </a>
+                            <ul>
+                                <li><a href="/narrations">Narrations</a></li>
+                                <li><a href="/playlists">Playlists</a></li>
+                                <li><a href="/distribution">Distribution</a></li>
+                                <li><a class="active" aria-current="page" href="/analytics">Analytics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    {% plotly_direct name="voxsnap" %}
+                </div>
+                <div class="footer">
+                    <div class="nav-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                            <li><a href="/terms">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright text-right">
+                        Copyright © 2019 VoxSnap Inc. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% plotly_footer %}
+    </body>
+</html>

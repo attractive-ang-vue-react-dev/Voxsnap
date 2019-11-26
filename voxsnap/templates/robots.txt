@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /Boeing_Honeywell_Uninterruptible_Autopilot
+Sitemap: https://voxsnap.com/sitemap.xml

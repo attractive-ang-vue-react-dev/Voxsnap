@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>VoxSnap: How to be The Startup Hero</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www-mezz.voxsnap.com/css/style.min.css">
+  <style>
+    #voxsnap-player .player_container { background: url(https://data.voxsnap.com/player/img/timdraper/graphite.jpg), #000; background-size: cover; }
+    .main-nav__list { justify-content: center; }
+    .main-nav__list li { margin: 0 0 25px; }
+  {% if registered is False %}
+.modal {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: #393a48;
+}
+
+.modal-content .description { display: block; margin-top: 18px; font-size: 21px; }
+
+.modal-content .book { font-style: italic; }
+
+.modal-content .error { color: #ff0000; text-align: left; padding-left: 6px; font-size: 16px; }
+
+/* .modal-content .note { margin-left: 6px; padding-top: 28px; text-align: left; font-size: 16px; } */
+.modal-content .note { padding-top: 28px; font-size: 16px; }
+
+.modal-content input {
+    display: block;
+    width: 100%;
+    padding: 9px 12px;
+    min-height: 44px;
+    border-radius: 3px;
+    border: solid 1px #979797;
+    font-size: 16px;
+    line-height: 24px;
+} 
+
+.modal-content button {
+    display: block;
+    width: 100%;
+    padding: 9px 15px;
+    border: 0;
+    border-radius: 4px;
+    background: #ff5b8f;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+  .modal-content input { margin-bottom: 12px; }
+}
+  {% endif %}
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="main-header__wrapper">
+      <div class="main-header__inner">
+        <div class="main-header__logo">
+          <a href="/">
+          <img src="{% static "assets/img/logo@2x.png" %}" width="168" height="23" alt="VoxSnap">
+        </a>
+        </div>
+        <nav class="main-nav">
+          <ul class="main-nav__list">
+            <li><a href="/pricing/" class="main-nav__link">Pricing</a></li>
+            <li><a href="/audiohub/" class="main-nav__link">Audiohub</a></li>
+            <li><a href="/#blog" class="main-nav__link main-nav__link--bold">Blog</a></li>
+          </ul>
+        </nav>
+        <button class="main-nav__toogle">
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+  <section class="playlist">
+    <div id="voxsnap-player"></div><script async type="text/javascript" src="https://data.voxsnap.com/player/v1/timdraper/voxsnap.js" data-username="timdraper" data-playlist="19" data-pro="true"></script>
+  </section>
+  {% if registered is False %}
+  <div class="modal">
+    <div class="modal-content">
+      <h1 class="title">Listen for Free!</h1>
+      <p class="description">Enter your email to listen to stories from<br/>
+      Tim Draper's book <span class="book">How to be The Startup Hero</span></p>
+      <p class="note">Receive an email once the audiobook is available on Audible</p>
+      <div class="row">
+      <form>
+      {% csrf_token %}
+      <div class="col-sm-8 less-right"><input type="email" name="email" placeholder="your@email.com" required></div>
+      </form>
+      <div class="col-sm-4 less-left"><button class="submit__btn">GO</button></div>
+      </div>
+      <span class="error"></span>
+    </div>
+  </div>
+  {% endif %}
+  <footer class="main-footer">
+    <div class="main-footer__wrapper">
+      <div class="main-footer__social">
+        <a href="https://www.facebook.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+          <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+        </a>
+        <a href="https://twitter.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+          <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/voxsnap/" target="_blank" class="main-footer__social-link">
+          <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+        </a>
+      </div>
+      <div class="main-footer__info">
+        <p class="made">
+          <span>Made in </span>
+          <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+        </p>
+        <p class="legal">
+          <a href="/terms">Terms of Use</a>
+          <a href="/privacy">Privacy Policy</a>
+        </p>
+        <p class="copyright">{% now "Y" as current_year %} Copyright &copy; {{ current_year }} VoxSnap Inc. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script>
+(function() {
+  var mainNav = document.querySelector('.main-nav');
+  var mainNavToggle = document.querySelector('.main-nav__toogle');
+
+  if (mainNavToggle) {
+    mainNavToggle.addEventListener('click', function() {
+      mainNav.classList.toggle('main-nav--opened');
+      document.body.classList.toggle('main-nav--noscroll');
+    });
+  }
+})();
+  </script>
+  {% if registered is False %}
+  <script>
+(function() {
+  'use strict';
+    
+  // find the desired selectors
+  var btn = document.querySelector('.modal-content .submit__btn');
+  var alrt = document.querySelector('.modal-content .error');
+  var email = document.querySelector('.modal-content input');
+  var form = document.querySelector('.modal-content form');
+  
+  // register an event
+  btn.addEventListener('click', function(e) {
+    if(email.validity.valid) {
+  var request = new XMLHttpRequest();
+  
+  // keep track of the request
+  request.onreadystatechange = function() {
+    // check if the response data send back to us 
+    if(request.readyState === 4) {
+      if(request.status === 200) {
+        // hide our modal
+        document.querySelector(".modal").style.display = 'none';
+      } else {
+        // otherwise display an error message
+        alrt.innerHTML = '' + request.responseText;
+        //console.error('An error occurred during your request: ' +  request.status);
+	//console.error(request);
+      }
+    }
+  }
+  request.open('POST', 'https://voxsnap.com/timdraper/submit/');
+      //e.preventDefault();
+      request.send(new FormData(form));
+    } else {
+      //e.preventDefault();
+      email.focus();
+    }
+  });
+  
+})();
+  </script>
+  {% endif %}
+</body>
+</html>

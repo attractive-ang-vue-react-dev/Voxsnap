@@ -1,0 +1,45 @@
+@import "../../../../utils/variables";
+
+.search-billing-form {
+  padding: 30px;
+  background-color: #fff;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .title {
+    font-size: 39px;
+    color: $warm-pink;
+  }
+
+  .search-input {
+    margin-left: 20px;
+    position: relative;
+
+    &::after {
+      content: '\F002';
+      font: normal normal normal 20px/1 FontAwesome;
+      display: block;
+      right: 20px;
+      top: 11px;
+      position: absolute;
+    }
+
+    input {
+      height: 45px;
+      border-radius: 100px;
+      border: solid 1px #e6e6e6;
+      padding: 0 50px 0 25px;
+    }
+  }
+
+}

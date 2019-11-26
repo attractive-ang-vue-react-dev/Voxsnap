@@ -1,0 +1,481 @@
+{% load static compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pricing - VoxSnap</title>
+    <link rel="stylesheet" href="{% static "assets/css/style.min.css" %}">
+  </head>
+  <body>
+    <header class="main-header">
+  <div class="main-header__wrapper">
+    <div class="main-header__inner">
+      <div class="main-header__logo">
+        <a href="/">
+          <img src="{% static "assets/img/logo@2x.png" %}" width="168" height="23" alt="VoxSnap">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <!-- <li><a href="/contact_us" class="main-nav__link">Contact</a></li> -->
+          <li><a href="/pricing/" class="main-nav__link">Pricing</a></li>
+          <li><a href="/audiohub/" class="main-nav__link">Audiohub</a></li>
+          <li><a href="/#blog" class="main-nav__link main-nav__link--bold">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+    <section class="pricing-page">
+      <div class="pricing-page__wrapper">
+        <h3 class="pricing-page__title">Package Identifier</h3>
+        <div class="pricing-page__package-row">
+          <div class="pricing-page__package-col pricing-page__package-col--1">
+            <button id="pricing-page__package--1" class="pricing-page__package pricing-page__package--1 is-active" type="button">
+              <span class="cntrl"></span>
+              <span class="txt">Needs</span>
+            </button>
+          </div>
+          <div class="pricing-page__package-col pricing-page__package-col--2">
+            <button id="pricing-page__package--2" class="pricing-page__package pricing-page__package--2" type="button">
+              <span class="cntrl"></span>
+              <span class="txt">Package</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pricing-page__blocks">
+          <div class="pricing-page__block" id="pricing-page__questionaire" style="display: block;">
+            <section class="questionaire">
+  <div class="questionaire__title">Complete this simple questioner to find the package that fits your needs</div>
+  <section class="questionaire__form">
+    <form method="POST">
+    <div class="questionaire__inner">
+      <p style="color: red">{{ form.non_field_errors }}</p>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          1. How many audio narrations do you need per month (plan according to how many written pieces you post per month)
+        </div>
+        <div class="questionaire__control">
+          <select class="questionaire__select" id="questionaire-narrations" name="narrations_needed">
+              <option value="" disabled selected>Select</option>
+            <option value="1">1-5</option>
+            <option value="6">6-10</option>
+            <option value="11">11-20</option>
+            <option value="20">20+</option>
+          </select>
+        </div>
+        {{ form.narrations_needed.errors }}
+      </section>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          2. Do you want your audio to be distributed as a podcast stream to all the popular podcasting apps?
+        </div>
+        <div class="questionaire__control">
+          <div class="questionaire__radioBtns">
+            <label class="questionaire__radioItem">
+              <span class="value">Yes</span>
+              <input type="radio" name="podcast_distribution" id="questionaire-distribution">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__radioItem">
+              <span class="value">No</span>
+              <input type="radio" name="podcast_distribution_not_needed">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          3. Do you want to have your own Amazon Alexa Flash Briefing or/and a Skill for your content? (so people can have a dedicated voice experience with your content on the Amazon Alexa devices)
+        </div>
+        <div class="questionaire__control">
+          <div class="questionaire__checkboxItems">
+            <label class="questionaire__checkbox">
+              <span class="value">Flash Briefing</span>
+              <input type="checkbox" id="questionaire-alexa-briefing" name="alexa_flash_briefing">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__checkbox">
+              <span class="value">Skill</span>
+              <input type="checkbox" id="questionaire-alexa-skill" name="alexa_skill">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__checkbox">
+              <span class="value">None</span>
+              <input type="checkbox" id="questionaire-alexa-none" name="alexa_not_needed">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          4. Do you want to have your own Google Home News or/and Action for your content? (so people can have a dedicated voice experience with your content on Google Home + Assistant)
+        </div>
+        <div class="questionaire__control">
+          <div class="questionaire__checkboxItems">
+            <label class="questionaire__checkbox">
+              <span class="value">News</span>
+              <input type="checkbox" id="questionaire-google-news" name="google_news">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__checkbox">
+              <span class="value">Action</span>
+              <input type="checkbox" id="questionaire-google-action" name="google_action">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__checkbox">
+              <span class="value">None</span>
+              <input type="checkbox" id="questionaire-google-none" name="google_not_needed">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          5. Do you need any third party integration with marketing sotware like HubSpot, Marketo, Salesforce, etc.
+        </div>
+        <div class="questionaire__control">
+          <div class="questionaire__radioBtns">
+            <label class="questionaire__radioItem">
+              <span class="value">Yes</span>
+              <input type="radio" name="thirdparty_integration" id="questionaire-integration">
+              <span class="checkmark"></span>
+            </label>
+            <label class="questionaire__radioItem">
+              <span class="value">No</span>
+              <input type="radio" name="thirdparty_integration_not_needed">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="questionaire__item">
+        <div class="questionaire__name">
+          6. Insert your email to receive a free consultation to help you define your audio and voice strategy
+        </div>
+        <div class="questionaire__control">
+          <input type="email" name="email" class="questionaire__input" placeholder="Your email…" />
+        </div>
+        {{ form.email.errors }}
+      </section>
+    </div>
+    <div class="questionaire__submit">
+        {% csrf_token %}
+      <button type="submit" class="questionaire__submitBtn" id="questionaire__submitBtn">Next</button>
+    </div>
+  </section>
+  </form>
+</section>
+
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+  <div class="testimonials__inner">
+    <h3 class="testimonials__title">Clients Testimonials</h3>
+    <div class="testimonials__list">
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/jay-five@2x.jpg" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>A great way to increase brand awareness and post’s engagement. Our blog visitors love the audio!<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Jay Five</span>
+            <span class="testimonials__author-info">President &amp; CEO FusePhase</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/amy-kritzer@2x.jpg" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>I like the voice I picked a lot! The embeddable player was super easy to just pop in my posts.<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Amy Kritzer</span>
+            <span class="testimonials__author-info">Blogger, Entrepreneur and Author</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/rosemary-brisco@2x.png" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>Using VoxSnap to narrate totheweb.com blog posts and create an iTunes podcast channel. Awesome service with great pricing. Kudos to VoxSnap.<span class="c"></span>
+          </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Rosemary Brisco</span>
+            <span class="testimonials__author-info">Search Marketing Specialist, ToTheWeb</span>
+          </p>
+        </div>
+      </div>
+      <div class="testimonials__item">
+        <div class="testimonials__photo">
+          <img src="{% static "assets/img/testimonials/alex-bauer@2x.png" %}" width="75" height="75" alt="">
+        </div>
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            <span class="o"></span>Our own team members have mentioned they would listen to content over reading it, we were excited when VoxSnap was able to easily transform our content in to audio.<span class="c"></span>         </p>
+          <p class="testimonials__author">
+            <span class="testimonials__author-name">Alex Bauer</span>
+            <span class="testimonials__author-info">Marketing &amp; Developer Advocate, Branch.io</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- #temporarily removing due to spam... <div class="testimonials__cta">
+      <a href="/contact_us" class="btn btn--primary">Contact Us for More Information</a>
+    </div> -->
+  </div>
+</section>
+
+<footer class="main-footer">
+  <div class="main-footer__wrapper">
+    <div class="main-footer__social">
+      <a href="https://www.facebook.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_fb.png" %}" width="20" height="20" alt="FaceBook">
+      </a>
+      <a href="https://twitter.com/VoxSnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_tw.png" %}" width="25" height="20" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/voxsnap/" target="_blank" class="main-footer__social-link">
+        <img src="{% static "assets/img/icon_ins.png" %}" width="22" height="21" alt="Instagram">
+      </a>
+    </div>
+    <div class="main-footer__info">
+      <p class="made">
+        <span>Made in </span>
+        <span><img src="{% static "assets/img/us-flag.png" %}" width="20" height="15" alt="USA"></span>
+      </p>
+      <p class="legal">
+        <a href="/terms/">Terms of Use</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </p>
+      <p class="copyright">
+        Copyright &copy; {% now 'Y' %} VoxSnap Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93567103-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-93567103-1');
+    </script>
+    <script>
+        // MainNav toggle menu on mobile
+        (function () {
+          var mainNav = document.querySelector('.main-nav');
+          var mainNavToggle = document.querySelector('.main-nav__toogle');
+
+          if (mainNavToggle) {
+            mainNavToggle.addEventListener('click', function () {
+              mainNav.classList.toggle('main-nav--opened');
+              document.body.classList.toggle('main-nav--noscroll');
+            });
+          }
+        })();
+
+        // Animating smooth scroll to id
+        (function () {
+          'use strict';
+
+          // Feature Test
+          if ('querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
+            // Function to animate the scroll
+            var smoothScroll = function (anchor, duration) {
+
+              // Calculate how far and how fast to scroll
+              var startLocation = window.pageYOffset;
+              var endLocation = anchor.offsetTop;
+              var distance = endLocation - startLocation;
+              var increments = distance / (duration / 16);
+              var stopAnimation;
+
+              if (mainNav.classList.contains('main-nav--opened')) {
+                mainNav.classList.toggle('main-nav--opened');
+                document.body.classList.toggle('main-nav--noscroll');
+              };
+
+              // Scroll the page by an increment, and check if it's time to stop
+              var animateScroll = function () {
+                window.scrollBy(0, increments);
+                stopAnimation();
+              };
+
+              // If scrolling down
+              if (increments >= 0) {
+                // Stop animation when you reach the anchor OR the bottom of the page
+                stopAnimation = function () {
+                  var travelled = window.pageYOffset;
+                  if ((travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight)) {
+                    clearInterval(runAnimation);
+                  }
+                };
+              }
+              // If scrolling up
+              else {
+                // Stop animation when you reach the anchor OR the top of the page
+                stopAnimation = function () {
+                  var travelled = window.pageYOffset;
+                  if (travelled <= (endLocation || 0)) {
+                    clearInterval(runAnimation);
+                  }
+                };
+              }
+
+              // Loop the animation function
+              var runAnimation = setInterval(animateScroll, 16);
+
+            };
+
+            // Define smooth scroll links
+            var scrollToggle = document.querySelectorAll('.scroll');
+
+            // For each smooth scroll link
+            [].forEach.call(scrollToggle, function (toggle) {
+
+              // When the smooth scroll link is clicked
+              toggle.addEventListener('click', function (e) {
+
+                // Prevent the default link behavior
+                e.preventDefault();
+
+                // Get anchor link and calculate distance from the top
+                var dataID = toggle.getAttribute('href');
+                var dataTarget = document.querySelector(dataID);
+                var dataSpeed = toggle.getAttribute('data-speed');
+
+                // If the anchor exists
+                if (dataTarget) {
+                  // Scroll to the anchor
+                  smoothScroll(dataTarget, dataSpeed || 500);
+                }
+              }, false);
+            });
+          }
+        })();
+
+        // New pricing page with questionaire
+        (function () {
+          var questionaireBtn = document.querySelector('#pricing-page__package--1');
+          var packageBtn = document.querySelector('#pricing-page__package--2');
+          var questionaireNextBtn = document.querySelector('#questionaire__submitBtn');
+          var pricingQuestionaire = document.querySelector('#pricing-page__questionaire');
+
+          var btnPricingMonthly = document.querySelector('#pricing-page__type--1');
+          var btnPricingAnnual = document.querySelector('#pricing-page__type--2');
+          var pricingPackages = document.querySelector('#pricing-page__packages');
+          //var packagesItems = pricingPackages.querySelectorAll('.packages__item');
+
+          var questionaireNarrations = document.querySelector('#questionaire-narrations');
+          var questionaireDistribution = document.querySelector('#questionaire-distribution');
+          var questionaireAlexaBriefing = document.querySelector('#questionaire-alexa-briefing');
+          var questionaireAlexaSkill = document.querySelector('#questionaire-alexa-skill');
+          var questionaireAlexaNone = document.querySelector('#questionaire-alexa-none');
+          var questionaireGoogleNews = document.querySelector('#questionaire-google-news');
+          var questionaireGoogleAction = document.querySelector('#questionaire-google-action');
+          var questionaireGoogleNone = document.querySelector('#questionaire-google-none');
+          var questionaireIntegration = document.querySelector('#questionaire-integration');
+
+          questionaireAlexaNone.addEventListener('click', function () {
+            if (this.checked) {
+              questionaireAlexaBriefing.checked = false;
+              questionaireAlexaSkill.checked = false;
+            }
+          });
+          questionaireAlexaBriefing.addEventListener('click', function() {
+            if (this.checked) {
+              questionaireAlexaNone.checked = false;
+            }
+          });
+          questionaireAlexaSkill.addEventListener('click', function() {
+            if (this.checked) {
+              questionaireAlexaNone.checked = false;
+            }
+          });
+
+          questionaireGoogleNone.addEventListener('click', function () {
+            if (this.checked) {
+              questionaireGoogleNews.checked = false;
+              questionaireGoogleAction.checked = false;
+            }
+          });
+          questionaireGoogleAction.addEventListener('click', function() {
+            if (this.checked) {
+              questionaireGoogleNone.checked = false;
+            }
+          });
+          questionaireGoogleNews.addEventListener('click', function() {
+            if (this.checked) {
+              questionaireGoogleNone.checked = false;
+            }
+          });
+
+          // questionaireNextBtn.addEventListener('click', function () {
+          //   var package = 'starter';
+
+          //   if (questionaireAlexaBriefing.checked || questionaireGoogleNews.checked) package = 'advanced';
+          //   if (questionaireAlexaSkill.checked || questionaireGoogleAction.checked) package = 'complete';
+          //   if (questionaireIntegration.checked) package = 'complete';
+
+          //   for (var i = 0; i < packagesItems.length; i++) {
+          //     packagesItems[i].classList.remove('is-selected');
+          //   };
+          //   pricingPackages.querySelector(`.packages__item[data-package=${package}]`).classList.add('is-selected');
+
+          //   pricingPackages.setAttribute('data-narrations', questionaireNarrations.options[questionaireNarrations.selectedIndex].value);
+          //   pricingPackages.setAttribute('data-distribution', questionaireDistribution.checked);
+          //   questionaireBtn.classList.remove('is-active');
+          //   packageBtn.classList.add('is-active');
+          //   pricingQuestionaire.style.display = 'none';
+          //   pricingPackages.style.display = 'block';
+          //   var currentBillingType = document.querySelector('.pricing-page__type.is-active').getAttribute('data-type');
+          //   updatePricingUrls(currentBillingType.toString());
+          // });
+
+          function updatePricingUrls(type) {
+            var linkParams = '&narrations=' + pricingPackages.getAttribute('data-narrations') + '&distribution=' + pricingPackages.getAttribute('data-distribution');
+            for (var i = 0; i < packagesItems.length; i++) {
+              var package = packagesItems[i].getAttribute('data-package');
+              var link = packagesItems[i].querySelector('.packages__link');
+              link.href = '/payment/?type=' + type + '&package=' + package + linkParams;
+            };
+          };
+        })();
+
+        (function () {
+          var packagesAddBtns = document.querySelectorAll('.packages__add-btn');
+
+          for (var i = 0; i < packagesAddBtns.length; i++) {
+            packagesAddBtns[i].addEventListener('click', function (e) {
+              e.preventDefault();
+              this.parentElement.style.display = 'none';
+              this.parentElement.nextElementSibling.style.display = 'block';
+            });
+          }
+        })();
+    </script>
+  </body>
+</html>

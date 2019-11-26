@@ -1,0 +1,13 @@
+<div class="input-line">
+    <div class="label-box">
+        <label for="{{ input.id_for_label }}">{{ label }}</label>
+    </div>
+
+    <div class="field-error-block">
+        {% for error in input.errors %}
+            <small class="form-error is-visible">{{ error }}</small>
+        {% endfor %}
+    </div>
+
+    {{ input }}
+</div>

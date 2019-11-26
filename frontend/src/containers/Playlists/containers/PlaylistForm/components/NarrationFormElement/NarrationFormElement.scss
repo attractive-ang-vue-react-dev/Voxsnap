@@ -1,0 +1,89 @@
+@import "../../../../../../utils/variables";
+.narration-dragging-element {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  transition: box-shadow 0.1s linear;
+  border-bottom: 1px solid $border-color;
+
+  .bars {
+    color: $border-color;
+    font-size: 25px;
+
+    i {
+      cursor: move;
+    }
+  }
+
+  .index {
+    min-width: 50px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #505164;
+  }
+
+  .Select {
+    flex: 1 1 auto;
+    margin: 0 80px 0 55px;
+
+    &__control {
+      border-color: transparent;
+    }
+
+    &__indicator-separator {
+      display: none;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.19);
+
+    .Select__control {
+      border-color: $border-color;
+
+      &:hover {
+        .Select-placeholder, .Select--single > .Select__control .Select-value {
+          color: $warm-pink;
+        }
+      }
+    }
+  }
+
+  .ellipsis {
+    position: relative;
+
+    .ellipsis-trigger {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .delete-button-content {
+      top: 50%;
+      left: 0;
+      transform: translate(calc(-100% - 20px), -50%);
+
+      .delete-button {
+        border-radius: 4px;
+        box-shadow: 0 0 34px 0 rgba(0, 0, 0, 0.15);
+        background-color: #ffffff;
+        border: solid 1px #e1e1e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 22px 0;
+        width: 140px;
+        color: $warm-pink;
+
+        i {
+          margin-right: 15px;
+          font-size: 20px;
+        }
+
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

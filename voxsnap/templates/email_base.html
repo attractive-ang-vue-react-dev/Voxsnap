@@ -1,0 +1,46 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}VoxSnap Team{% endblock %} </title>
+
+    {{ HEAD_CLOSING|safe }}
+</head>
+<body>
+
+<div style="padding: 30px 20px 115px 20px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #d9e1ea"
+            align="center">
+    <div style="padding-bottom: 25px">
+        <img src="https://voxsnap.com/img/logo@2x.png"
+             width="336"
+             height="46"
+             alt="VoxSnap">
+    </div>
+
+    <div style="max-width: 600px;
+                padding: 50px 20px 50px 20px;
+                background-color: #fff"
+         align="center">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div style="max-width: 640px;
+                height: 45px;
+                text-align: center;
+                background-color: #cfd9e5">
+        <span style="line-height: 45px;
+                     font-size: 14px;
+                     color: #586778">
+            {% trans "E-mail from:" %} <a href="https://voxsnap.com/" style="text-decoration: none; color: #2c9ff9">VoxSnap</a>
+        </span>
+    </div>
+</div>
+
+{{ BODY_CLOSING|safe }}
+</body>
+</html>

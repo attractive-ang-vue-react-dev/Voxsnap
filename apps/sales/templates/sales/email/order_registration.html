@@ -1,0 +1,88 @@
+{% extends 'email_base.html' %}
+{% load i18n %}
+{% block title %} Customer Order {% endblock %}
+
+{% block content %}
+<h1 style="margin: 0;
+           padding-bottom: 40px;
+           line-height: normal;
+           font-size: 32px;
+           font-weight: 300;
+           color: #586778"
+>
+    {% trans "New order [and account] at VoxSnap" %}
+</h1>
+
+<h2 style="margin: 0;
+           padding-bottom: 50px;
+           line-height: 1.7;
+           font-size: 18px;
+           font-weight: normal;
+           color: #586778"
+>
+
+    <p>
+        VoxSnap, Inc
+        940 Stewart Dr.
+        Sunnyvale, CA 94085
+
+        Invoice to:
+        {{ company }}
+        {{ phone }}
+
+
+        Payment date:
+        {{ date }}
+
+        Order Summary:
+        {{ order.pack_narrations }} Narration(s): ${{ order.unit_price }}
+        Total: ${{ order.price }}
+
+    </p>
+
+    <span style="color: #919dac">{{ user.company }}</span>
+</h2>
+
+{% if confirmation_link %}
+    <p style="margin: 0;
+              padding-bottom: 20px;
+              text-align: center;
+              font-size: 12px;
+              color: #586778"
+    >
+        {% blocktrans %}
+            Click the button below to set up the password for your account
+        {% endblocktrans %}
+    </p>
+
+    <a style="display: block;
+              width: 200px;
+              padding: 8px 0;
+              font-size: 14px;
+              font-weight: bold;
+              text-decoration: none;
+              color: #fff;
+              background-color: #08c255"
+       href="http://{{ site }}{{ confirmation_link }}"
+    >
+        {% trans "Set up the password" %}
+    </a>
+{% endif %}
+
+<p>
+    Thank you for your order!
+
+    Have a question or need help? Send us an email or give us a call at (650) 690-2793.
+</p>
+
+<p style="margin: 0;
+          padding-top: 50px;
+          line-height: 1.35;
+          font-size: 14px;
+          color: #919dac"
+>
+    {% blocktrans %}
+        If you do not understand what it was about, ignore this email
+    {% endblocktrans %}
+</p>
+{% endblock %}

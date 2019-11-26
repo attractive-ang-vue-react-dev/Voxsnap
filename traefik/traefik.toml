@@ -1,0 +1,50 @@
+logLevel = "INFO"
+defaultEntryPoints = ["http", "https"]
+
+# Entrypoints, http and https
+[entryPoints]
+
+# http should be redirected to https
+  [entryPoints.http]
+    address = ":80"
+#    [entryPoints.http.redirect]
+#      entryPoint = "https"
+
+  [entryPoints.traefik_dash]
+    address=":8080"
+    [entryPoints.traefik_dash.auth]
+      [entryPoints.traefik_dash.auth.basic]
+        users = [
+          "robd:$apr1$7HH6FFut$caiN7Rw9grxTuUv5yH5ak.",
+        ]
+
+  # https is the default
+  [entryPoints.https]
+    address = ":443"
+    [entryPoints.https.tls]
+#    [entryPoints.https.auth]
+#      [entryPoints.https.auth.basic]
+#        users = [
+#          "afonso:$apr1$wMcXip8R$a7ePoziAPRjmh..3qHVPl1",
+#          "helena:$apr1$lIFN3wVs$hdO.6J/qI4.8RSD3UjEfw/",
+#          "robd:$apr1$7HH6FFut$caiN7Rw9grxTuUv5yH5ak.",
+#          "vitalii:$apr1$fxfnzaRt$uk.uF6tSUVKYxHDAk/Ntb/",
+#        ]
+
+# Enable ACME (Let's Encrypt): automatic SSL
+[acme]
+email = "rob@voxsnap.com"
+storage = "/acme.json"
+entryPoint = "https"
+onDemand = false
+onHostRule = true
+[acme.tlsChallenge]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "voxsnap.com"
+watch = true
+exposedbydefault = false
+
+[api]
+entrypoint="traefik_dash"
